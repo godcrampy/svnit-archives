@@ -1,0 +1,151 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* =========== NAV PART ================ */
+nav {
+  width: 100vw;
+  background-color: white;
+  overflow: hidden;
+  position: fixed;
+  height: 15vh;
+  display: flex;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+#nav-logo {
+  height: 12vh;
+  margin-top: 1.5vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+
+nav .nav-head {
+  color: #282c3f;
+  padding-top: 6.5vh;
+  font-size: 2.5vh;
+  font-weight: bold;
+  padding-right: 2vw;
+}
+
+#nav-right {
+  position: absolute;
+  right: 2vw;
+}
+
+nav input {
+  margin-left: 5vw;
+  margin-right: 5vw;
+  border: 0;
+  color: #696e79;
+  background-color: #f5f5f6;
+  height: 5vh;
+  margin-top: 5vh;
+  width: 25vw;
+  padding: 10px;
+}
+
+/* =========== MAIN PART ================ */
+main {
+  margin-left: 7vw;
+  margin-right: 7vw;
+}
+
+#hero {
+  width: 100%;
+  margin-top: 25vh;
+  margin-bottom: 25px;
+}
+
+.section{
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+#section-1 {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+#section-1 img {
+  width: 22%;
+}
+
+/* #section-2 {
+  margin-top: 30px;
+  margin-bottom: 25px;
+} */
+
+#section-2 img {
+  width: 100%;
+}
+
+article {
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+.title {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #282c3f;
+  font-size: 1.5em;
+}
+
+.subtitle {
+  letter-spacing: 1px;
+  margin-bottom: 1em;
+  color: #696e79;
+}
+
+#section-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* margin-top: 30px; */
+  /* margin-bottom: 25px; */
+}
+
+#section-3 img {
+  width: 22%;
+}
+
+#section-4 {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-top: 30px; */
+  /* margin-bottom: 25px; */
+}
+
+#section-4 img {
+  width: 50%;
+}
+
+/* =========== FOOTER PART ================ */
+footer {
+  background-color: rgb(250, 251, 252);
+  padding-left: 15vw;
+  padding-right: 15vw;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  font-size: 0.8em;
+}
+
+footer p{
+  color: #696e79;
+}
+
+footer div{
+  margin: 10px;
+}
+
+footer img{
+  width: 8vw;
+  margin: 10px;
+}

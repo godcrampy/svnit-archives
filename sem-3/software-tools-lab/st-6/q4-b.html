@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <script>
+    function area(radius) {
+      return radius * radius * Math.PI;
+    }
+
+    function alertUser() {
+      alert(area(Number(document.querySelectorAll('input')[0].value)));
+    }
+
+  </script>
+</head>
+
+<body>
+  Radius: <input type="input" name=""><br>
+  <button onclick="alertUser()">Area</button><br>
+
+</body>
+
+</html>

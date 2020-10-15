@@ -1,0 +1,27 @@
+div {
+	width: 200px;
+	height: 200px;
+	margin: 1em;
+}
+
+.primary {
+	background-color: #FAA916;
+}
+
+.secondary {
+	background-color: #FE4A49;
+}
+
+.tertiary {
+	background-color: #2AB7CA;
+}
+
+marquee {
+	font-family: sans-serif;
+	color: white;
+	width: 50%;
+}
+
+marquee img {
+	height: 100px;
+}

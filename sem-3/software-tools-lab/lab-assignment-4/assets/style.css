@@ -1,0 +1,22 @@
+.primary {
+	background-color: #FAA916;
+}
+
+.secondary {
+	background-color: #FE4A49;
+}
+
+.tertiary {
+	background-color: #2AB7CA;
+}
+
+body {
+	color: #fff;
+	font-family: sans-serif;
+}
+
+a {
+	color: #FAA916;
+	font-weight: bold;
+	text-decoration: none;
+}

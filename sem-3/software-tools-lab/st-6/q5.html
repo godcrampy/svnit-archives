@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<script>
+		function larger() {
+			let a = document.querySelectorAll('input')[0].value,
+				b = document.querySelectorAll(`input`)[1].value;
+			if (a > b)
+				alert(a)
+			else
+				alert(b)
+		}
+	</script>
+</head>
+
+<body>
+	Number1: <input type="input" name=""><br>
+	Number2: <input type="input" name=""><br>
+	<button onclick="larger()">Larger</button><br>
+
+</body>
+
+</html>

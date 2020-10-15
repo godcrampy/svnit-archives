@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <script>
+    function swap(a, b) {
+      [a, b] = [b, a]
+      alert(a + " " + b);
+    }
+
+    function swapNum() {
+      let a = document.querySelectorAll('input')[0].value,
+        b = document.querySelectorAll(`input`)[1].value;
+      swap(a, b)
+    }
+  </script>
+</head>
+
+<body>
+  A: <input type="input" name=""><br>
+  B: <input type="input" name=""><br>
+  <button onclick="swapNum()">Swap</button><br>
+
+</body>
+
+</html>

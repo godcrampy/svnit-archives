@@ -1,0 +1,28 @@
+body {
+  padding: 100px 20%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1em;
+}
+
+label {
+  display: grid;
+  grid-template-columns: 175px 180px auto;
+  margin: 7px;
+}
+
+span {
+  color: #454545;
+  margin-left: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.success {
+  border: 1px solid #11FF00;
+  /* box-shadow: ; */
+}
+
+.danger {
+  border: 1px solid #FF0018;
+
+}

@@ -1,0 +1,16 @@
+body {
+  background-color: #B2DBBF;
+}
+
+p{
+	background-color: #454545;
+	margin: 10px;
+	font-size: 1.5em;
+	/*color: #224455*/
+}
+
+img{
+	width: 100%;
+	height: 40vh;
+	object-fit: cover
+}

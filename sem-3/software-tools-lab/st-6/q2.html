@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<script>
+		function addNum() {
+			alert(Number(document.querySelectorAll('input')[0].value) + Number(document.querySelectorAll(`input`)[1].value));
+		}
+
+		function subNum() {
+			alert(Number(document.querySelectorAll('input')[0].value) - Number(document.querySelectorAll(`input`)[1].value))
+		}
+	</script>
+</head>
+
+<body>
+	Number1: <input type="input" name=""><br>
+	Number2: <input type="input" name=""><br>
+	<button onclick="addNum()">Add</button><br>
+	<button
+		onclick="subNum()">Subtract</button><br>
+
+</body>
+
+</html>

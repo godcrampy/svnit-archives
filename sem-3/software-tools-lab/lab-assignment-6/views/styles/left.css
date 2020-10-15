@@ -1,0 +1,11 @@
+body {
+    background-color: #247BA0;
+		height: 100vh;
+}
+
+body p{
+	background-color: #FF1654;
+	margin: 10px;
+	font-size: 1.5em;
+	padding: 7px;
+}
