@@ -1,0 +1,8 @@
+clc;
+clear all;
+close all;
+
+t = -10:0.01:1;
+d = zeros(1, length(t));
+
+d(t == 0) = 1;
