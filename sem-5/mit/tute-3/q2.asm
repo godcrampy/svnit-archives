@@ -1,0 +1,7 @@
+LXI SP, 00FFH
+LXI H, 0701
+MVI A, 20H
+SUB M
+ori 40H
+add m		
+HLT

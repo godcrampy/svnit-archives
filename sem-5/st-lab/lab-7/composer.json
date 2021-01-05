@@ -1,0 +1,7 @@
+{
+  "name": "godcrampy/st-lab-7",
+  "description": "lab work",
+  "require": {
+    "phpmailer/phpmailer": "^6.1"
+  }
+}

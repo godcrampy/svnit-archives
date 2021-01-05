@@ -1,0 +1,15 @@
+body {
+	margin: 15px 20%;
+	font-family: sans-serif;
+}
+
+b {
+	display: block;
+}
+.block {
+	display: block;
+	width: 270px;
+	border: 1px solid #787878;
+	padding: 10px;
+	margin: 10px;
+}

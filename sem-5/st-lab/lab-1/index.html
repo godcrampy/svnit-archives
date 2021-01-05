@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+<body>
+	<h1>Form</h1>
+	<form>
+		<label class="block">
+			<b>Name: </b>
+			<input type="text" name="name">
+		</label>
+		<label class="block">
+			<b>Email: </b>
+			<input type="email" name="email" required="true">
+		</label>
+		<label class="block">
+			<b>Date of Birth: </b>
+			<input type="date" name="dob" required="true">
+		</label>
+		<label class="block">
+			<b>Phone Number: </b>
+			<input type="number" name="name">
+		</label>
+		<label class="block">
+			<b>Gender:</b>
+			<input type="radio" id="male" name="gender" value="male">
+			<label for="male">Male</label>
+			<input type="radio" id="female" name="gender" value="female">
+			<label for="female">Female</label>
+		</label>
+		<label class="block">
+			<b>Position:</b>
+			<input type="radio" id="dev" name="position" value="dev">
+			<label for="developer">Web Developer</label>
+			<input type="radio" id="prog" name="position" value="prog">
+			<label for="developer">Programmer</label>
+			<input type="radio" id="man" name="position" value="man">
+			<label for="developer">Manager</label>
+		</label>
+		<label class="block">
+			<b>Resume:</b>
+			<input type="file" name="resume">
+		</label>
+		<label class="block">
+			<b>ID:</b>
+			<input type="file" name="id">
+		</label>
+		<label class="block">
+			<input type="submit" name="submit">
+		</label>
+	</form>
+
+</body>
+</html>
