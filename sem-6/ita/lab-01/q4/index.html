@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>SVNIT, Surat</title>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggler" data-toggle="open-navbar1">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <a href="#">
+            <h4>SVNIT<span>Surat</span></h4>
+          </a>
+        </div>
+
+        <div class="navbar-menu" id="open-navbar1">
+          <ul class="navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li class="navbar-dropdown">
+              <a
+                href="#"
+                class="dropdown-toggler"
+                data-dropdown="my-dropdown-id"
+              >
+                Branch <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown" id="my-dropdown-id">
+                <li><a href="#">Computer Engineering</a></li>
+                <li><a href="#">Mechanical Engineering</a></li>
+                <li><a href="#">Electrical Engineering</a></li>
+                <li><a href="#">Electronics Engineering</a></li>
+                <li><a href="#">Civil Engineering</a></li>
+                <li class="separator"></li>
+                <li><a href="#">Physics</a></li>
+                <li><a href="#">Mathematics</a></li>
+                <li><a href="#">Chemistry</a></li>
+              </ul>
+            </li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">SignIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br /><br />
+    <div class="slideshow-container">
+      <div class="slides-individual fade">
+        <img
+          src="./assembly.jpg"
+          style="width: 100%; height: 80vh; border-radius: 10%"
+        />
+        <div class="text">Assembly SVNIT</div>
+      </div>
+
+      <div class="slides-individual fade">
+        <img
+          src="./complex.png"
+          style="width: 100%; height: 80vh; border-radius: 10%"
+        />
+        <div class="text">CRC Complex Building</div>
+      </div>
+
+      <div class="slides-individual fade">
+        <img
+          src="./gym.jpeg"
+          style="width: 100%; height: 80vh; border-radius: 10%"
+        />
+        <div class="text">Gym SVNIT</div>
+      </div>
+    </div>
+    <br />
+
+    <div style="text-align: center">
+      <span class="index"></span>
+      <span class="index"></span>
+      <span class="index"></span>
+    </div>
+
+    <script>
+      var slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("slides-individual");
+        var indexs = document.getElementsByClassName("index");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        for (i = 0; i < indexs.length; i++) {
+          indexs[i].className = indexs[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        indexs[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+      }
+
+      let dropdowns = document.querySelectorAll(".navbar .dropdown-toggler");
+      let dropdownIsOpen = false;
+
+      // Handle dropdown menues
+      if (dropdowns.length) {
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("click", (event) => {
+            let target = document.querySelector(
+              "#" + event.target.dataset.dropdown
+            );
+
+            if (target) {
+              if (target.classList.contains("show")) {
+                target.classList.remove("show");
+                dropdownIsOpen = false;
+              } else {
+                target.classList.add("show");
+                dropdownIsOpen = true;
+              }
+            }
+          });
+        });
+      }
+
+      // Handle closing dropdowns if a user clicked the body
+      window.addEventListener("mouseup", (event) => {
+        if (dropdownIsOpen) {
+          dropdowns.forEach((dropdownButton) => {
+            let dropdown = document.querySelector(
+              "#" + dropdownButton.dataset.dropdown
+            );
+            let targetIsDropdown = dropdown == event.target;
+
+            if (dropdownButton == event.target) {
+              return;
+            }
+
+            if (!targetIsDropdown && !dropdown.contains(event.target)) {
+              dropdown.classList.remove("show");
+            }
+          });
+        }
+      });
+
+      // Open links in mobiles
+      function handleSmallScreens() {
+        document
+          .querySelector(".navbar-toggler")
+          .addEventListener("click", () => {
+            let navbarMenu = document.querySelector(".navbar-menu");
+
+            if (navbarMenu.style.display === "flex") {
+              navbarMenu.style.display = "none";
+              return;
+            }
+
+            navbarMenu.style.display = "flex";
+          });
+      }
+
+      handleSmallScreens();
+    </script>
+  </body>
+</html>

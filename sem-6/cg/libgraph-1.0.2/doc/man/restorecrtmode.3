@@ -1,0 +1,27 @@
+.TH RESTORECRTMODE 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+restorecrtmode - close the graphics window
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void restorecrtmode (void);"
+
+.SS \fRScheme procedure :
+	(\fBrestorecrtmode\fR)
+
+.SH DESCRIPTION
+
+\fBrestorecrtmode()\fR shuts down the graphics window. Unlike the original implementation the action of \fBrestorecrtmode()\fR here is equivalent to \fBclosegraph(3)\fR and the two can be used interchangeably.
+This basically means that once you \fBrestorecrtmode()\fR the current contents of your graphics window are lost.
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBinitgraph\fR(3),     \fBclosegraph\fR(3),
+.br
+\fBdetectgraph\fR(3)

@@ -1,0 +1,24 @@
+.TH CIRCLE 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+circle - draws a circle with given center and radius
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void circle (int " xc ", int " yc ", int " rad ");"
+
+.SS \fRScheme procedure :
+	(\fBcircle\fR \fIxc yc radius\fR)
+	
+.SH DESCRIPTION
+
+\fBcircle()\fR draws a circle in the current drawing color using (\fIxc\fR, \fIyc\fR) as center and \fIrad\fR as radius.
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),     \fBarc\fR(3),         \fBpieslice\fR(3)

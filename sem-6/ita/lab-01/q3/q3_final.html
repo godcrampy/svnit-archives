@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css"
+    />
+    <title>Q3 result</title>
+  </head>
+  <body>
+    <h2 id="final"></h2>
+    <script>
+      let content = document.querySelector("#final");
+      let interest = localStorage.getItem("interest");
+      let total = localStorage.getItem("total");
+      content.innerHTML += `Final interest calculated is: ${interest} <br>Total Amount is: ${total}`;
+    </script>
+  </body>
+</html>

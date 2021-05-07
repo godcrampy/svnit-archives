@@ -1,0 +1,132 @@
+.TH LIBGRAPH 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API
+.SH NAME
+grconstants - description of the various color and mode constants in graphics.h
+
+.SH DESCRIPTION
+
+This man page describes the various constants and enumerations defined in \fIgraphics.h\fR.
+
+.SS ** Note : (for dummies) 
+You are supposed to use the Constants field while passing to funtions. So you don't need to remember the values.
+
+.SS VGA Drivers :
+.LP
+.BI Constants "    " Values "                 "  Remarks
+.LP
+DETECT            0     Autodetect -- defaults to VGA 640x480x8
+.LP
+USER              1     User specified modes ** See \fB@ Note\fR
+.LP
+VGA               9     This is the default and only driver available
+
+
+.SS VGA Modes :
+.LP
+.BI Constants "     " Values "     "  Resolution "     " BPP  "    " Remarks
+.LP
+VGALO            0          640x200      8    windowed
+.LP
+VGAMED           1          640x350      8    windowed
+.LP
+VGAHI            2          640x480      8    windowed
+.LP
+VGAMAX           3          800x600      8    windowed
+.LP
+VGA640           4          640x480      8    fullscreen*
+.LP
+VGA800           5          800x600      8    fullscreen*
+.LP
+VGA1024          6         1024x768      8    fullscreen*
+.LP
+USERMODE         7     User specified    8    windowed
+
+.SS # NOTE: 
+800x600, 1024x768, User-specified are special extension of libgraph not available in TurboC.
+
+.SS * NOTE: 
+The fullscreen modes **may** cause virtual resolution in X if the mode selected does not match your X-resolution. This is seen specifically when the VESA driver for XFree86 4.x is used. If this is not the case with you, use them by all means. Also note that you cannot kill( or xkill ) your application while in fullscreen modes. You have to rely on CTRL-C to come out of infinite loops.
+
+.SS @ NOTE: 
+For user-specified modes use driver=USER and a 6 digit integer 
+.br
+(3-digits: x-resolution + 3-digits: y-resolution) for mode.
+.SS 	example: 
+		\fIgd\fR = USER, \fIgm\fR = 500300; /* 500 x 300 mode */
+.br
+		initgraph (&\fIgd\fR, &\fIgm\fR, "");
+
+		
+.SS Colors :(defined in graphics.h)
+
+The same color constants are used for \fBsetfgcolor\fR(3), \fBsetbkcolor\fR(3) and \fBsetfontcolor\fR(3)
+.LP
+.BI constant "     " value "     " foreground "     " background "     " fontcolor
+.LP
+ BLACK           0         Yes            Yes           Yes
+.LP
+ BLUE            1         Yes            Yes           Yes
+.LP
+ GREEN           2         Yes            Yes           Yes
+.LP
+ CYAN            3         Yes            Yes           Yes
+.LP
+ RED             4         Yes            Yes           Yes
+.LP
+ MAGENTA         5         Yes            Yes           Yes
+.LP
+ BROWN           6         Yes            Yes           Yes
+.LP
+ LIGHTGRAY       7         Yes            Yes           Yes
+.LP
+ DARKGRAY        8         Yes            Yes           Yes
+.LP
+ LIGHTBLUE       9         Yes            Yes           Yes
+.LP
+ LIGHTGREEN     10         Yes            Yes           Yes
+.LP
+ LIGHTCYAN      11         Yes            Yes           Yes
+.LP
+ LIGHTRED       12         Yes            Yes           Yes
+.LP
+ LIGHTMAGENTA   13         Yes            Yes           Yes
+.LP
+ YELLOW         14         Yes            Yes           Yes
+.LP
+ WHITE          15         Yes            Yes           Yes
+
+.SS Line Drawing Styles :(defined in shapes.h)
+
+These constants indicate pre-defined line-styles used for \fBsetlinestyle\fR(3) and \fBgetlinesettings\fR(3).
+.LP
+.BI constant "        " value "     " meaning "             " eqv. 16 bit-pattern
+.LP
+ SOLID_LINE         0     Solid Line             0xffff
+.LP
+ DOTTED_LINE        1     Dotted Line            0x3333
+.LP
+ CENTER_LINE        2     Centered Line          0x0c3f
+.LP
+ DASHED_LINE        3     Dashed Line            0x1f1f
+.LP
+ USERBIT_LINE       4     User-defined style       -
+
+
+.SS Line Thickness :(defined in shapes.h)
+
+These constants indicate pre-defined line thickness' used for \fBsetlinestyle\fR(3) and \fBgetlinesettings\fR(3).
+.LP
+.BI constant "        " value "     " meaning 
+.LP
+NORM_WIDTH          1     1 pixel wide
+.LP
+THICK_WIDTH         3     3 pixels wide
+
+
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),       \fBsetcolor\fR(3),      \fBgetcolor\fR(3)
+.br
+\fBsetbkcolor\fR(3),     \fBgetbkcolor\fR(3),    \fBsetfontcolor\fR(3)
+.br
+\fBgetfontcolor\fR(3),   \fBsetlinestyle\fR(3),  \fBgetlinesettings\fR(3)

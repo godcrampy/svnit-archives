@@ -1,0 +1,1623 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>libgraph Function List</title>
+</head>
+ <body>
+                 
+<center> <big><big> <a name="libgraph_---_Implementing_Turbo_Cs_"> 	</a> 	libgraph
+ ---  Implementing Turbo C's graphics on GNU/Linux  </big> </big> </center>
+ <br>
+   
+<table width="100%" summary="Head table">
+ <tbody>
+    <tr>
+ 	<td align="left" width="33%" valign="top"> 		<a
+ href="./Introduction.html">&lt;&lt;Previous</a></td>
+ 	<td align="center" width="34%" valign="top"><br>
+      </td>
+ 	<td align="right" width="33%" valign="top"> 		<a
+ href="./Developer.html">Next&gt;&gt;</a></td>
+ </tr>
+ <tr>
+ 	<td align="left" width="33%" valign="top">Introduction &amp; Usage</td>
+ 	<td align="center" width="34%" valign="top"><br>
+      </td>
+ 	<td align="right" width="33%" valign="top"> 		Developer Section</td>
+ </tr>
+ 
+  </tbody>
+</table>
+   
+<hr width="100%" size="2">           
+<p> <br>
+ </p>
+<blockquote>          <i><big><big>&nbsp;List of Functions &amp; Enumerations</big></big></i> 
+</blockquote>
+            
+<blockquote>                     
+  <div align="left">                     
+  <ul>
+          <li><big><a href="#Function_list">List of Functions</a>&nbsp;</big><br>
+    </li>
+   
+  </ul>
+                       
+  <ul>
+          <li><big><a href="#Constants">Constants &amp; Enumerations</a></big><br>
+    </li>
+   
+  </ul>
+                       
+  <ul>
+          <li><big><a href="#Extra_functions">Non-Graphics Related Functions</a></big></li>
+   
+  </ul>
+       </div>
+       </blockquote>
+ <br>
+                
+<p></p>
+          
+<hr width="100%" size="2">  
+<p> </p>
+<blockquote>        
+  <ul>
+          <li><a name="Function_list"></a><a href="#Function_list">List of
+Functions</a><br>
+    </li>
+   
+  </ul>
+ 
+  <p>This section contains the graphics related functions of this library
+i.e. those that are normally defined in graphics.h</p>
+  
+  <p> 
+  <table width="100%">
+ <tbody>
+      <tr valign="middle">
+ <td width="30%" align="left"> <a href="#initgraph_closegraph">initgraph</a></td>
+ <td width="30%" align="left"> <a href="#initgraph_closegraph">closegraph</a></td>
+ <td width="30%" align="left"> <a href="#detectgraph">detectgraph</a></td>
+ </tr>
+   <tr valign="middle">
+ <td width="30%" align="left"> <a href="#setgraphmode_getgraphmode">setgraphmode</a></td>
+ <td width="30%" align="left"> <a href="#setgraphmode_getgraphmode">getgraphmode</a></td>
+ <td width="30%" align="left"> <a href="#restorecrtmode">restorecrtmode</a></td>
+ </tr>
+    <tr valign="middle">
+ <td width="30%" align="left"> <a href="#getmaxx_getmaxy">getmaxx</a></td>
+ <td width="30%" align="left"> <a href="#getmaxx_getmaxy">getmaxy</a></td>
+ <td width="30%" align="left"> <a href="#cleardevice">cleardevice</a></td>
+ </tr>
+    <tr valign="middle">
+ <td width="30%" align="left"> <a href="#putpixel_getpixel">putpixel</a></td>
+ <td width="30%" align="left"> <a href="#putpixel_getpixel">getpixel</a></td>
+ <td width="30%" align="left"> <a href="#setcolor_getcolor">setcolor</a></td>
+ </tr>
+   <tr valign="middle">
+ <td width="30%" align="left"> <a href="#setbkcolor_getbkcolor">setbkcolor</a></td>
+ <td width="30%" align="left"> <a href="#setbkcolor_getbkcolor">getbkcolor</a></td>
+ <td width="30%" align="left"> <a href="#setcolor_getcolor">getcolor</a></td>
+ </tr>
+     <tr valign="middle">
+ <td width="30%" align="left"> <a href="#moveto_moverel">moveto</a></td>
+ <td width="30%" align="left"> <a href="#getx_gety">getx</a></td>
+ <td width="30%" align="left"> <a href="#getx_gety">gety</a></td>
+ </tr>
+    <tr valign="middle">
+ <td width="30%" align="left"> <a href="#moveto_moverel">moverel</a></td>
+ <td width="30%" align="left"> <a href="#setfontcolor_getfontcolor">setfontcolor</a></td>
+ <td width="30%" align="left"> <a href="#setfontcolor_getfontcolor">getfontcolor</a></td>
+ </tr>
+   <tr valign="middle">
+ <td width="30%" align="left"> <a href="#line">line</a></td>
+ <td width="30%" align="left"> <a href="#line">lineto</a></td>
+ <td width="30%" align="left"> <a href="#line">linerel</a></td>
+ </tr>
+   <tr valign="middle">
+ <td width="30%" align="left"> <a href="#circle">circle</a></td>
+ <td width="30%" align="left"> <a href="#arc_pieslice">arc</a></td>
+ <td width="30%" align="left"> <a href="#arc_pieslice">pieslice</a></td>
+ </tr>
+    <tr valign="middle">
+ <td width="30%" align="left"> <a href="#rectangle">rectangle</a></td>
+ <td width="30%" align="left"> <a href="#drawpoly_fillpoly">drawpoly</a></td>
+ <td width="30%" align="left"> <a href="#drawpoly_fillpoly">fillpoly</a></td>
+ </tr>
+    <tr valign="middle">
+ <td width="30%" align="left"> <a href="#ellipse">ellipse</a></td>
+ <td width="30%" align="left"> <a href="#fillellipse_sector">fillellipse</a></td>
+ <td width="30%" align="left"> <a href="#floodfill">floodfill</a></td>
+ </tr>
+    <tr valign="middle">
+ <td width="30%" align="left"> <a href="#bar">bar</a></td>
+ <td width="30%" align="left"> <a href="#bar3d">bar3d</a></td>
+ <td width="30%" align="left"> <a href="#getmaxcolor">getmaxcolor</a></td>
+ </tr>
+   <tr valign="middle">
+ <td width="30%" align="left"> <a href="#outtext_outtextxy">outtext</a></td>
+ <td width="30%" align="left"> <a href="#outtext_outtextxy">outtextxy</a></td>
+ <td width="30%" align="left"> <a href="#getmaxmode_getmoderange">getmaxmode</a></td>
+ </tr>
+   <tr valign="middle">
+ <td width="30%" align="left"> <a href="#getdrivername_getmodename">getdrivername</a></td>
+ <td width="30%" align="left"> <a href="#getdrivername_getmodename">getmodename</a></td>
+ <td width="30%" align="left"> <a href="#getmaxmode_getmoderange">getmoderange</a></td>
+ </tr>
+   <tr valign="middle">
+ <td width="30%" align="left"> <a href="#getarccoords">getarccoords</a></td>
+ <td width="30%" align="left"> <a href="#fillellipse_sector">sector</a>
+        </td>
+ <td width="30%" align="left"> <a href="#textheight_textwidth">textheight</a>
+        </td>
+ </tr>
+   <tr valign="middle">
+ <td width="30%" align="left"> <a href="#textheight_textwidth">textwidth</a></td>
+ <td width="30%" align="left"> <a href=""></a>
+        </td>
+ <td width="30%" align="left"> <a href=""></a>
+        </td>
+ </tr>
+ 
+ 
+    </tbody>
+  </table>
+ </p>
+ 
+  <p></p>
+ 
+  <hr width="100%" size="2">               
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="initgraph_closegraph"></a><a
+ href="#initgraph_closegraph">initgraph, closegraph</a>   
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void initgraph( int *graphdriver, int *graphmode, char *pathtodriver );<br>
+  void closegraph( void );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+<p>The function initgraph is called to start the graphics mode i.e. open the graphics drawing window. All functions operate within this window. initgraph *MUST* be called before drawing functions are called.</p>
+<p>The arguments graphdriver and graphmode are  the driver and 
+mode values given in the <a href="#Constants">Constants</a> section below. The last argument path to driver is provided only for 
+compatibility with TC and is ignored by initgraph. It may be NULL or
+any random string. It does not make any difference.</p>
+<p>closegraph( ) is used to shutdown the graphics system and close the
+graphics window. Once it is called the graphics window will have to
+be reopened with another call to initgraph if needed. Closegraph is 
+called by default when your program quits but it is better to call
+it explicitly before main returns.</p>
+<p>
+  initgraph returns the graphics mode initialized in graphmode.</p>
+  Note: For user-specified modes and sizes see <a href="#modenotice">this</a>.
+<p>
+Example:
+<blockquote>
+	int gd=DETECT, gm=VGAMAX;<br>
+	initgraph(&gd, &gm, 0);<br>
+	......	&nbsp;&nbsp; /*Call to various drawing functions.*/ <br>
+	closegraph();<br>
+</blockquote>
+</p>
+</blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME :<a name="detectgraph"></a><a href="#detectgraph">detectgraph </a>
+ 
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void detectgraph(int *graphdriver, int *graphmode);  </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+  <p>detectgraph initializes the graphics system to the highest mode
+  available. The mode selected is returned in graphmode.</p>
+</blockquote>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">   
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="setgraphmode_getgraphmode"></a><a
+ href="#setgraphmode_getgraphmode">setgraphmode, getgraphmode</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void setgraphmode(int mode);<br>
+  int getgraphmode(void);</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION :<br>
+<blockquote>
+<p> getgraphmode returns the current graphics mode.
+ Your program must make a successful call to initgraph or setgraphmode
+ BEFORE calling getgraphmode.
+</p>
+<p>
+ setgraphmode selects a graphics mode different than the default one set by
+ initgraph. It clears the screen and resets all graphics settings to their
+ defaults. mode must be a valid mode for the current device driver.
+<p>
+ The <a href="#Constants">enumeration</a> graphics_modes, defined in GRAPHICS.H, gives names for the
+ predefined graphics modes.
+</p>
+<p>
+ You can use setgraphmode in conjunction with restorecrtmode to switch back
+ and forth between text and graphics modes.
+</p>
+		  
+
+</blockquote>
+  
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+<blockquote>
+    getgraphmode returns the graphics mode
+	    set by initgraph or setgraphmode.<br>
+		 setgraphmode does not return.
+</blockquote>
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="restorecrtmode"></a><a href="#restorecrtmode">restorecrtmode</a>
+ 
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void restorecrtmode ( void );  </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+  <p>restorecrtmode shuts down the graphics window. Unlike the 
+  original implementation the action of restorecrtmode( ) here is
+  equivalent to closegraph( ) and the two can be used interchangeably.
+  </p>
+</blockquote>
+	</p> 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="getmaxx_getmaxy"></a><a href="#getmaxx_getmaxy">getmaxx,
+getmaxy</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>int getmaxx( void );<br>
+  int getmaxy( void );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+<p> getmaxx returns the maximum x value (screen-relative) for the current
+  graphics driver and mode.</p>
+
+<p>  getmaxy returns the maximum y value (screen-relative) for the current
+  graphics driver and mode.</p>
+<p>
+  For example, on VGA800 (800x600) mode, getmaxx returns 799 and getmaxy
+  returns 599.</p>
+
+
+	   
+</blockquote>
+  
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+<blockquote>
+     getmaxx: maximum x screen coordinate<br>
+	 getmaxy: maximum y screen coordinate
+</blockquote>
+  </p>
+ 
+  <hr width="100%" size="2">   
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="cleardevice"></a><a href="#cleardevice">cleardevice</a>
+ 
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void cleardevice( void );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+<p>cleardevice erases the entire graphics screen and moves the current
+
+position as given by (<a href="#getx_gety">getx( )</a>, <a href="#getx_gety">gety( )</a>) to (0,0). This function is the graphics equivalent of clear or clrscr.
+</p>
+<p>
+ (Erasing consists of filling with the <a href="#setbkcolor_getbkcolor">current</a> background <a href="#colors">color</a>.)
+</p>
+ </blockquote>
+ 
+  </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">   
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="putpixel_getpixel"></a><a href="#putpixel_getpixel">putpixel,
+getpixel</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>int getpixel( int x, int y );<br>
+  void putpixel( int x, int y, int color );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+<p>  getpixel gets the color of the pixel located at (x,y).</p>
+  
+<p>  putpixel plots a point in the color defined by <a href="#colors">color</a> in graphics.h at (x,y).
+
+</blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+<blockquote>
+   getpixel returns the color of the given pixel<br>
+   putpixel does not return
+</blockquote>
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="setcolor_getcolor"></a><a href="#setcolor_getcolor">setcolor,
+getcolor</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void setcolor( int color );<br>
+  int getcolor( void );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+<p>   getcolor returns the current drawing <a href="#colors">color</a>.</p>
+<p>
+   setcolor sets the current drawing <a href="#colors">color</a> to color, which can range from 0 to
+   <a href="#getmaxcolor">getmaxcolor</a>.</p>
+<p>     
+	 To select a drawing color with setcolor, you can pass either the <a href="#colors">color number</a> or the equivalent <a href=#colors">color name</a>.</p>
+<p>	   
+	   The drawing color is the value that pixels are set to when the program draws lines, etc.
+</p>
+<p>Example : <br>
+<blockquote>setcolor(RED);<br>
+line(0, 0, getmaxx( ), getmaxy( ));
+</blockquote>
+</p>
+<p>Note : The default drawing color is WHITE.</p>						
+</blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+<blockquote>
+	getcolor returns the current drawing color.<br>
+	setcolor does not return
+</blockquote>
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="setbkcolor_getbkcolor"></a><a
+ href="#setbkcolor_getbkcolor">setbkcolor, getbkcolor</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void setbkcolor( int color );<br>
+  int getbkcolor( void );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+<p>   getbkcolor returns the current background <a href="#colors">color</a>.</p>
+<p>
+   setbkcolor sets the background to the <a href="#colors">color</a> specified by color.</p>
+
+<p>	 color is either a <a href="#colors">number</a> or <a href="#colors">symbolic name</a> specifying the color to set.
+</p>
+<p>Example : <br>
+<blockquote>
+	     setbkcolor(BLUE);
+</blockquote></p>
+<p>Note : The default background color is BLACK.</p>
+		 
+</blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+<blockquote>
+   getbkcolor returns the current background color.<br>
+	setbkcolor does not return.
+</blockquote>
+		 
+  </p>
+
+
+  <hr width="100%" size="2">    
+
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME :<a name="getx_gety"><a href="#getx_gety">getx, gety</a></a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>int getx( void );<br>
+  int gety( void );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+  <p>
+	getx returns the x-coordinate of the current graphics position(CP).
+</p><p>
+gety returns the y-coordinate of the current graphics position(CP).</p>
+
+
+  
+  </blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+  <blockquote>
+   getx: x-coordinate of current position<br>
+    gety: y-coordinate of current position
+	 
+  </blockquote>
+  </p>
+ 
+
+  <hr width="100%" size="2">   
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="moveto_moverel"></a><a href="#moveto_moverel">moveto, moverel</a>
+ 
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void moveto( int x, int y );<br>
+  void moverel( int dx, int dy );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+<p>moveto moves the current position CP to viewport position (x, y).
+  </p>
+<p> moverel moves the current position CP dx pixels in the x direction and
+ dy pixels in the y direction.</p>
+</blockquote>
+ </p>
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="setfontcolor_getfontcolor"></a><a
+ href="setfontcolor_getfontcolor">setfontcolor, getfontcolor</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void setfontcolor( int color );<br>
+  int getfontcolor( void );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+<p>	setfontcolor sets the current font <a href="#colors">color</a> to
+	color.</p>
+<p>getfontcolor gets the current font drawing <a href="#colors">color</a>.</p>
+<p>These functions are libgraph extensions, i.e. they are not 
+available in the original graphics.h. They affect  all text written
+on the graphics window wether by <a href="#outtext_outtextxy">outtext</a> or by <a href="#printf_scanf">printf</a>.
+</p>
+<p>Note : The default fontcolor is WHITE.</p>
+
+</blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+<blockquote>
+  getfontcolor returns the current font-color.<br>
+  setfontcolor does not return.
+</blockquote>
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME :<a name="line"></a><a href="#line">line, lineto, linerel</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void line( int x1, int y1, int x2, int y2 );<br>
+  void lineto( int x, int y);<br>
+  void linerel( int dx, int dy );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+<p>line draws a line from (x1, y1) to (x2, y2) using the current <a href="#setcolor_getcolor">color</a>. It does not update the current position (CP).</p>
+
+<p>lineto draws a line from the CP to (x, y), then moves the CP to (x, y).</p>
+
+<p>linerel draws a line from the CP to a point that is a relative distance
+(dx, dy) from the CP, then advances the CP by (dx, dy).</p>
+
+
+</blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="circle"></a><a href="#circle">circle</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void circle( int x, int y, int rad ); </blockquote>
+  
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+<p>circle draws a circle in the <a href="#setcolor_getcolor">current</a> drawing <a href="#colors">color</a> using ( x, y ) as center and rad as radius.
+</p>
+</blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="arc_pieslice"></a><a href="#arc_pieslice">arc, pieslice</a>
+ 
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>
+  void arc( int x, int y, int stangle, int endangle, int radius );<br>
+  void pieslice( int x, int y, int stangle, int endangle, int radius );
+  </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+ <p>arc draws a circular arc using the current drawing color.<br>
+ * See also <a href="#getarccoords">getarccoords</a>.</p>
+
+ <p>pieslice draws and fills a pie-slice in the current drawing color.</p>
+<p>Arguments : <br>
+	<blockquote>
+	(x, y) -- Center point of arc or pieslice. <br>
+	stangle -- start angle in degrees(as measured on the standard circle). <br>
+	endangle -- end angle in degrees(as measured on the standard circle). <br>
+ 	radius -- radius of arc or pieslice.
+	</blockquote>
+	</p>
+<p>The arc or pieslice travels from stangle to endangle. If stangle = 0 and endangle = 360 the call to arc or pieslice draws a complete circle.
+</p>
+  </blockquote>
+ </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="rectangle"></a><a href="#rectangle">rectangle</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void rectangle( int left, int top, int right, int bottom );  </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+ 	<p>
+rectangle draws a rectangle in the <a href="#setcolor_getcolor">current</a> drawing <a href="#colors">color</a>.
+ 	</p>
+	<p>
+  (left,top) is the upper left corner of the rectangle, and (right,bottom) is
+  its lower right corner.</p>
+    
+  </blockquote>
+
+  </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="drawpoly_fillpoly"></a><a href="#drawpoly_fillpoly">drawpoly,
+fillpoly</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void drawpoly( int numpoints, int *polypoints );<br>
+  void fillpoly( int numpoints, int *polypoints );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+<p>drawpoly draws a polygon using the <a href="#setcolor_getcolor">current</a> drawing <a href="#colors">color</a>.</p>
+<p>
+fillpoly draws the outline of a polygon using the current color, then fills the polygon using the current color.
+</p>
+<p>Arguments : <br>
+<blockquote>
+ numpoints  --  Specifies number of points<br>
+   *polypoints  --  Points to a sequence of (numpoints x 2) integers
+   Each pair of integers gives the x and y coordinates of a point on the
+   polygon.
+</blockquote>
+</p>
+<p>
+   To draw a closed figure with N vertices, you must pass N+1 coordinates to
+   drawpoly, where the Nth coordinate == the 0th coordinate.
+</p>
+   
+
+
+  
+  </blockquote>
+
+  </p>
+ 
+  <p>RETURN VALUE : None 
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="ellipse"></a><a href="#ellipse">ellipse</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>ellipse( int x, int y, int stangle, int endangle, int xradius, int yradius );   </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+<p>
+ellipse draws an elliptical arc in the <a href="#setcolor_getcolor">current</a> drawing <a href="#colors">color</a>.
+</p>
+<p>Arguments :<br>
+
+<blockquote>
+	 (x,y)  --  Center of ellipse<br>
+   xradius  --  Horizontal axis<br>
+     yradius  --  Vertical axis<br>
+	   stangle  --  Starting angle<br>
+	     endangle  --  Ending angle<br>
+		 
+</blockquote>
+</p>
+<p>
+The ellipse travels from stangle to endangle.
+
+If stangle = 0 and endangle = 360, the call to ellipse draws a complete
+ellipse.</p>
+
+</blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="fillellipse_sector"></a><a href="#fillellipse_sector">fillellipse, sector</a>
+ 
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void fillellipse( int x, int y, int xradius, int yradius );<br>
+  void sector(int x, int y, int stangle, int endangle, int xradius, int yradius);</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+<blockquote>
+
+<p>
+fillellipse draws an ellipse, then fills the ellipse with the <a href="#setcolor_getcolor">current</a> fill <a href="#colors">color</a>.</p>
+<p>
+sector draws an elliptical pie slice in the current drawing color, then fills it using the color.</p>
+
+
+
+<p>Arguments :<br>
+
+<blockquote>
+	 (x,y)  --  Center of ellipse<br>
+   xradius  --  Horizontal axis<br>
+     yradius  --  Vertical axis<br>
+	   stangle  --  Starting angle<br>
+	     endangle  --  Ending angle<br>
+		 
+</blockquote>
+</p>
+
+<p>
+The sector travels from stangle to endangle.
+
+If stangle = 0 and endangle = 360, the call to sector draws a complete
+filled ellipse similar to fillellipse.</p>
+
+</blockquote>
+</p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">     
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="floodfill"></a><a href="#floodfill">floodfill</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void floodfill( int x, int y, int boundarycolor );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+ <p>
+floodfill fills an enclosed area on bitmap devices.</p>
+<p>
+The area bounded by the color border is flooded with the <a href=#setcolor_getcolor">current</a> fill <a href="#colors">color</a>.
+<p>
+  <blockquote>
+
+	(x,y) is a "seed point".<br>
+  	If the seed is within an enclosed area, the inside will be filled.<br>
+	If the seed is outside the enclosed area, the exterior will be filled.<br>
+			
+  </blockquote>
+ </p>
+ <p>Note : <a href="#drawpoly_fillpoly">fillpoly</a> is recommended over floodfill whenever possible
+ for perfomance reasons.</p>
+  </blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME :<a name="bar"></a><a href="#bar">bar</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void bar( int left, int top, int right, int bottom );
+  </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+<p>bar draws a filled-in, rectangular, two-dimensional bar.</p>
+<p>
+ The bar is filled using the <a href="#setcolor_getcolor">current</a> fill <a href="#colors">color</a>.</p>
+
+	<p>
+  (left,top) is the upper left corner of the bar, and (right,bottom) is  its lower right corner.</p>
+    
+  
+  </blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">     
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME :<a name="bar3d"></a><a href="bar3d">bar3d</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void bar3d( int left, int top, int right, int bottom, int depth, int topflag );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+<p>bar3d draws a three-dimensional rectangular bar, then fills it using the <a href="#setcolor_getcolor">current</a> fill <a href="#colors">color</a>.
+</p>
+ <p>Arguments :<br>
+  <blockquote>
+   depth  --   Bar's depth in pixels<br>
+     topflag  --   top is put on the bar(3d-dimensional)<br>
+	   (left, top)    --   Rectangle's upper left corner<br>
+	     (right, bottom)  --   Rectangle's lower right corner<br>
+		 
+  
+  </blockquote>
+ </p> 
+  
+  </blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">   
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME : <a name="getmaxcolor"></a><a href="#getmaxcolor">getmaxcolor</a>
+ 
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>int getmaxcolor( void );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+<p>getmaxcolor returns the highest valid color value that can be passed to setcolor for the current graphics driver and mode.</p>
+<p>In the current implementation of libgraph this function always returns 15.</p>
+  
+  </blockquote>
+
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+  <blockquote>
+  Returns the highest available color value.
+  
+  </blockquote>
+  
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME :<a name="outtext_outtextxy"></a><a href="#outtext_outtextxy">outtext,
+outtextxy</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void outtext( char *textstring );<br>
+  void outtextxy( int x, int y, char *textstring );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>  
+<p> outtext and outtextxy display a text string, using the <a href="#setfontcolor_getfontcolor">current</a> <a href="#colors">font-color</a>.</p>
+<p>outtext outputs textstring at the current position (CP) and updates this position by the length of the text.</p>
+<p>outtexxy displays textstring in the viewport at the position (x, y) and does not affect CP.</p>
+<p>	     
+	 If a string is printed with the default font using outtext or outtextxy, any part of the string that extends outside the current viewport is automatically wrapped around. If the text scrolls off the page
+the function waits for a spacebar key before scrolling to the new page.
+</p>
+<p>
+	The scrolling action can be avoided by using <a href="#textheight_textwidth">textheight/textwidth</a> for precise placement of the text string.
+</p>
+<p>
+		 outtext and outtextxy are for use in graphics mode; they will not work in
+		 text mode.</p>
+  
+  </blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME :<a name="getmaxmode_getmoderange"></a><a
+ href="#getmaxmode_getmoderange">getmaxmode, getmoderange</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>int getmaxmode( void );<br>
+  void getmoderange( int graphdriver, int *lomode, int *himode );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+<p>getmaxmode lets you find out the maximum <a href="#Constants">mode number</a> for the currently loaded <a href="#Constants">driver</a>, directly from the driver.
+</p>
+<p>The minimum mode is 0. In the current implementation of libgraph
+this function always returns VGA1024.</p>
+
+ 
+ <p> getmoderange gets the range of valid graphics modes for the given graphics driver.</p>
+
+
+<p> Arguments :<br>
+<blockquote>
+   graphdriver  --  If graphdriver = -1, getmoderange gets the currently loaded driver modes. If graphdriver specifies an invalid graphics driver, both *lomode and *himode are set to -1.<br>
+   lomode   --   Points to location where lowest permissible mode value is returned.<br>
+	himode  --   Points to location where highest permissible mode value is returned.<br>
+</blockquote>
+</p>
+  </blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+  <blockquote>
+   getmaxmode returns the maximum mode number for the current driver.
+   <br>getmoderange does not return.
+  </blockquote>
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME :<a name="getdrivername_getmodename"></a><a
+ href="#getdrivername_getmodename">getdrivername, getmodename</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>char *getdrivername( void );<br>
+  char *getmodename( int mode_number );</blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+ <p>  After a call to initgraph, getdrivername returns the name of the driver that is currently loaded.</p>
+  <p>
+   getmodename accepts a graphics <a href="#Constants">mode number</a> as input and returns a string containing the name of the corresponding <a href="#Constants">graphics mode</a>.
+</p>
+<p>
+   The return values are useful for building menus or displaying status. The space required to store the string is malloced and should be freed when not required.</p>
+
+   
+  </blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+  <blockquote>
+   getdrivername returns a pointer to a string with the name of the currently loaded graphics driver.<br>
+   getmodename returns a pointer to a string contining the name of the graphics mode.
+  </blockquote>
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME :<a name="getarccoords"></a><a href="#getarccoords">getarccoords</a>
+ 
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>void getarccoords( struct arccoordstype *arccoords );
+  </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+ <p> 
+getarccoords puts information about the last call to arc in the
+arccoordstype structure *arccoords.             </p>
+<p>Arguments :<br>
+The arccoordstype structure is defined as follows : <br>
+  <blockquote>
+ struct arccoordstype {
+<blockquote> int  x, y;              /* center point of arc*/<br>
+     int  xstart, ystart;    /* start position */<br>
+     int  xend, yend;        /* end position   */<br>
+  </blockquote>
+ };
+				   
+  </blockquote>
+</p>
+<p>
+These values are useful if you need to make a <a href="#line">line</a> meet the end of an <a href="#arc_pieslice">arc</a>.
+</p>
+  
+  </blockquote>
+  </p>
+ 
+  <p>RETURN VALUE : None
+  </p>
+ 
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME :<a name="textheight_textwidth">textheight, textwidth</a>  
+  <p>SYNOPSIS :  <br>
+ </p>
+  <blockquote> int textheight ( char *textstring ); <br>
+  				int textwidth ( char *textstring ); </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  <blockquote>
+  <p>
+  		textheight returns the height in pixels of the text according to the size of
+	the font loaded currently. </p>
+	<p>
+		textwidth returns the width in pixels of the given text according
+	to the size of the font currently loaded. </p>
+	<p>
+		These functions are useful for line-spacing and precision placement
+	of text while using functions like <a href="#outtext_outtextxy">outtextxy</a>.
+	Since we are currently using only one font the size returned by textheight is
+	fixed while that of textwidth is actually calculated for the given string.
+	<p> NOTE: textwidth adds 5 to the actual value for good measure to prevent overlap
+	or accidental scrolling off the current line.</p>
+	</p>
+  </blockquote>
+  
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+  <blockquote>
+  	textheight returns the height in pixels of the given text string.
+	<br>
+	textwidth returns the width in pixels of the given text string.
+	</blockquote>
+  </p>
+ 
+  <hr width="100%" size="2">   
+  </blockquote>
+  
+  <hr width="100%" size="2">    
+  <div align="right"> 	<a href="#Function_list">to function list...</a></div>
+ NAME :<a name=""></a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>  </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+  </p>
+ 
+  <hr width="100%" size="2">   
+  </blockquote>
+ 
+<hr width="100%" size="2"> 
+<p> </p>
+<blockquote>   
+  <ul>
+          <li><a name="Constants"></a><a href="#Constants">Constants &amp;
+Enumerations</a><br>
+    </li>
+   
+  </ul>
+  
+  <p> ** Note : (for dummies) You are supposed to use the Constants field 
+while passing to funtions. So you don't need to remember the values. </p>
+  
+  <p>  </p>
+  <blockquote> <u><b>VGA Drivers :</b></u><br>
+ </blockquote>
+   
+  <table border="1" cellpadding="2">
+   <tbody>
+      <tr>
+     <th align="center">Constants</th>
+     <th align="center"> Values </th>
+     <th align="center"> Remarks</th>
+   </tr>
+   <tr valign="top">
+     <td width="30%" align="center" valign="middle">DETECT</td>
+      <td align="center" valign="middle">0</td>
+     <td width="30%" align="center" valign="middle">Autodetect -- defaults
+to VGA 640x480x8</td>
+   </tr>
+   <tr valign="top">
+     <td width="30%" align="center" valign="middle">USER</td>
+     <td align="center" valign="middle">1</td>
+     <td width="30%" align="center" valign="middle">User specified modes 
+	 	*libgraph Extension*
+		<a href="#modenotice">more ...</a></td>
+   </tr>
+   <tr valign="top">
+     <td width="30%" align="center" valign="middle">VGA</td>
+     <td align="center" valign="middle">9</td>
+     <td width="30%" align="center" valign="middle">This is the default and
+only driver available</td>
+   </tr>
+    </tbody>
+  </table>
+ (2 rows)  
+  <p></p>
+ 
+  <p> </p>
+  <blockquote>  <u><b>VGA Modes :</b></u> </blockquote>
+ 
+  <p></p>
+ 
+  <p>    
+  <table border="1" cellpadding="2">
+ <tbody>
+  <tr>
+     <th align="center">Constants</th>
+     <th align="center">Values</th>
+     <th align="center">Resolution</th>
+     <th align="center">BPP</th>
+     <th align="center">Remarks</th>
+   </tr>
+   <tr valign="top">
+     <td width="25%" align="center">VGALO</td>
+     <td width="25%" align="center">0</td>
+     <td width="25%" align="center">640x200</td>
+     <td width="25%" align="center">8</td>
+     <td width="25%" align="center">windowed </td>
+   </tr>
+   <tr valign="top">
+     <td width="25%" align="center">VGAMED</td>
+     <td width="25%" align="center">1</td>
+     <td width="25%" align="center">640x350</td>
+     <td width="25%" align="center">8</td>
+     <td width="25%" align="center">windowed</td>
+   </tr>
+   <tr valign="top">
+     <td width="25%" align="center">VGAHI</td>
+     <td width="25%" align="center">2</td>
+     <td width="25%" align="center">640x480</td>
+     <td width="25%" align="center">8</td>
+     <td width="25%" align="center">windowed</td>
+   </tr>
+   <tr valign="top">
+     <td width="25%" align="center">VGAMAX</td>
+     <td width="25%" align="center">3</td>
+     <td width="25%" align="center">800 x600</td>
+     <td width="25%" align="center">8</td>
+     <td width="25%" align="center">windowed</td>
+   </tr>
+   <tr valign="top">
+     <td width="25%" align="center">VGA640</td>
+     <td width="25%" align="center">4</td>
+     <td width="25%" align="center">640x480</td>
+     <td width="25%" align="center">8</td>
+     <td width="25%" align="center">fullscreen*</td>
+   </tr>
+   <tr valign="top">
+     <td width="25%" align="center">VGA800</td>
+     <td width="25%" align="center">5</td>
+     <td width="25%" align="center">800x600</td>
+     <td width="25%" align="center">8</td>
+     <td width="25%" align="center">fullscreen*</td>
+   </tr>
+   <tr valign="top">
+     <td width="25%" align="center">VGA1024</td>
+     <td width="25%" align="center">6</td>
+     <td width="25%" align="center">1024x768</td>
+     <td width="25%" align="center">8</td>
+     <td width="25%" align="center">fullscreen*</td>
+   </tr>
+   <tr valign="top">
+     <td width="25%" align="center">USERMODE</td>
+     <td width="25%" align="center">7</td>
+     <td width="25%" align="center">User specified<a href="#modenotice">@</a></td>
+     <td width="25%" align="center">8</td>
+     <td width="25%" align="center">windowed</td>
+   </tr>
+ 
+ 
+    </tbody> 
+  </table>
+ (7 rows)<br>
+   </p>
+ 
+  <p>     </p>
+  <p> # NOTE: 800x600, 1024x768, User-specified are special extension not provided in TC.</p>
+ 
+  <p> * NOTE: The fullscreen modes <b>may cause virtual resolution in X</b>
+if the mode selected does not match your X-resolution. This is seen specifically
+when the VESA driver for XFree86 4.x is used. If this is not the case with
+you, use them by all means. Also note that you cannot kill( or xkill ) your
+application while in fullscreen modes. You have to rely on CTRL-C  to come
+out of infinite loops. </p>
+     
+	<p><blockquote> 
+	<a name="modenotice"><a href="#modenotice">@ NOTE:</a></a> For user-specified modes use driver=USER
+		and a 6 digit integer (3-digits: x-resolution + 3-digits: y-resolution) 
+		for mode.<br>
+			<blockquote>example: gd = USER, gm = 500300; /* 500 x 300 mode */
+				</blockquote>
+	</blockquote></p>
+	 
+  <p> </p>
+  <blockquote>  <u><b><a name="colors">Colors :</a></b>(defined in graphics.h)</u> </blockquote>
+ 
+  <p></p>
+ 
+  <p> The same color constants are used for setfgcolor, setbkcolor and setfontcolor 
+  </p>
+ 
+  <p>   
+  <table border="1">
+   <tbody>
+      <tr>
+     <th align="center">constant</th>
+     <th align="center">value</th>
+     <th align="center">foreground</th>
+     <th align="center">background</th>
+        <th align="center">fontcolor</th>
+   </tr>
+   <tr valign="top">
+     <td align="center">BLACK</td>
+     <td align="center">0</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">BLUE</td>
+     <td align="center">1</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">GREEN</td>
+     <td align="center">2</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">CYAN</td>
+     <td align="center">3</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">RED</td>
+     <td align="center">4</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">MAGENTA</td>
+     <td align="center">5</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">BROWN</td>
+     <td align="center">6</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">LIGHTGRAY</td>
+     <td align="center">7</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">DARKGRAY</td>
+     <td align="center">8</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">LIGHTBLUE</td>
+     <td align="center">9</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">LIGHTGREEN</td>
+     <td align="center">10</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">LIGHTCYAN</td>
+     <td align="center">11</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">LIGHTRED</td>
+     <td align="center">12</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">LIGHTMAGENTA</td>
+     <td align="center">13</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">YELLOW</td>
+     <td align="center">14</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+   <tr valign="top">
+     <td align="center">WHITE</td>
+     <td align="center">15</td>
+     <td align="center">Yes</td>
+     <td align="center">Yes</td>
+        <td align="center">Yes<br>
+        </td>
+   </tr>
+ 
+    </tbody>
+  </table>
+ (16 rows)<br>
+ </p>
+  
+  <p></p>
+ </blockquote>
+ 
+<hr width="100%" size="2"> 
+<p> </p>
+<blockquote>    
+  <ul>
+          <li><a name="Extra_functions"></a><a href="#Extra_functions">Non-Graphics
+Related Functions</a></li>
+   
+  </ul>
+ 
+  <p> 	These functions are not directly related to graphics but are generally
+used in Turbo C while doing graphics related programming. </p>
+ 
+  <p> 	Functions like getch, delay(millisec), and kbhit are useful even otherwise
+and can be used in normal text mode. Even if you  are not doing graphics
+programming you can use them just by  including graphics.h and linking with
+libgraph. </p>
+   
+  <table width="100%">
+ <tbody>
+      <tr valign="middle">
+ <td width="30%" align="left"> <a href="#kbhit">kbhit</a></td>
+ <td width="30%" align="left"> <a href="#getch_getche">getch</a></td>
+ <td width="30%" align="left"> <a href="#getch_getche">getche</a></td>
+ </tr>
+ <tr valign="middle">
+ <td width="30%" align="left"> <a href="#delay">delay</a></td>
+ <td width="30%" align="left"> <a href="#printf_scanf">printf("", ...)</a></td>
+ <td width="30%" align="left"> <a href="#printf_scanf">scanf("", ...)</a></td>
+ </tr>
+ <tr valign="middle">
+ <td width="30%" align="left"> <a href="#getchar_putchar">getchar</a></td>
+ <td width="30%" align="left"> <a href="#getchar_putchar">putchar</a></td>
+ <td width="30%" align="left"> <a href="#gets">gets</a></td>
+ </tr>
+ 
+    </tbody>
+  </table>
+      
+  <hr width="100%" size="2">  
+  <div align="right"> 	<a href="#Extra_functions">to function list...</a></div>
+ NAME : <a name="kbhit"></a><a href="#kbhit">kbhit</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote> int kbhit(void); </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+ </p>
+  <p>kbhit checks to see if a keystroke is currently available.</p>
+ 
+  <p>Any available keystroke can be retrieved using getchar or getch.</p>
+ 
+  <p> Example: <br>
+while(!kbhit()) <br>
+{<br>
+.....<br>
+.....<br>
+.....<br>
+}</p>
+ 
+  <p>Note: In text mode use getchar (not getch) to use retrieve the keystroke
+since getch flushes the input buffer before reading.</p>
+ 
+  <p></p>
+ 
+  <p>RETURN VALUE : <br>
+ 	On success (if a keystroke is available) it returns the keystroke.<br>
+If a keystroke is not available it returns 0.</p>
+ 
+  <p></p>
+ 
+  <hr width="100%" size="2">     
+  <div align="right"> 	<a href="#Extra_functions">to function list...</a></div>
+ NAME : <a name="getch_getche"></a><a href="#getch_getche">getch, getche</a>
+ 
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote> int getch(void);<br>
+int getche(void); </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+ </p>
+  <p>getch gets a character from console, and does not echo it to the screen.</p>
+ 
+  <p>getche gets a character from console, and echoes it to the screen. </p>
+ 
+  <p></p>
+ 
+  <p>RETURN VALUE : <br>
+ Both functions return the character read from the keyboard. </p>
+ 
+  <hr width="100%" size="2">      
+  <div align="right"> 	<a href="#Extra_functions">to function list...</a></div>
+ NAME : <a name="delay"></a><a href="#delay">delay</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote> int delay(float milliseconds); </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+ </p>
+  <p> This function provides accurate time delays using the nanosleep function
+to give sub-millisecond granularity. Hence the milliseconds argument is a
+float and not an int. </p>
+ 
+  <p></p>
+ 
+  <p>RETURN VALUE : <br>
+ 	Number of milliseconds delayed (truncated). </p>
+ 
+  <hr width="100%" size="2">      
+  <div align="right"> 	<a href="#Extra_functions">to function list...</a></div>
+ NAME : <a name="printf_scanf"></a><a href="#printf_scanf">printf, scanf</a>
+ 
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote> int printf(const char *format, ...);<br>
+ int scanf(const char *format, ...); </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+ </p>
+  <p> These are the normal scanf, printf functions hacked to work in graphics
+mode (i.e. in the libgraph window).</p>
+ 
+  <p>Remember that no other input-output functions save those listed here(namely
+printf, scanf, getch, getchar, putchar, ...) will work in graphics mode.
+All other functions act on the  stdin, stdout which is the console from where
+you are running this program.</p>
+ 
+  <p>NOTE: In graphics mode scanf has a maximum input-buffer of  256 characters
+( as set by the SCAN_BUF constant in grtext.h ) and  cannot perform more
+than 10 %-conversions in a single call.</p>
+ 
+  <p>NOTE: If you enter invalid input (namely characters where  numbers are
+expected) scanf will go into an infinite loop. You must use Control-C to
+quit the program and try-again ( the program  would have seg-faulted anyway
+).</p>
+  
+  <p></p>
+ 
+  <p>RETURN VALUE : <br>
+ Same as normal printf, scanf. </p>
+ 
+  <hr width="100%" size="2">     
+  <div align="right"> 	<a href="#Extra_functions">to function list...</a></div>
+ NAME : <a name="getchar_putchar"></a><a href="#getchar_putchar">getchar,
+putchar</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote> int getchar(void);<br>
+int putchar(int character); </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+ These are the normal getchar, putchar functions hacked to work in graphics
+mode (i.e. in the libgraph window).</p>
+ 
+  <p>Remember that no other input-output functions save those listed here(namely
+printf, scanf, getch, getchar, putchar, ...) will work in graphics mode.
+All other functions act on the  stdin, stdout which is the console from where
+you are running the program.</p>
+ 
+  <p></p>
+ 
+  <p>RETURN VALUE : <br>
+ Same as normal getchar, putchar. </p>
+ 
+  <hr width="100%" size="2">      
+  <div align="right"> 	<a href="#Extra_functions">to function list...</a></div>
+ NAME : <a name="gets"></a><a href="#gets">gets</a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote> ************************** </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+ </p>
+  <p> 	gets() function is *NOT* provided in this library. This entry is a
+WARNING and REMINDER to people not to use gets. People  migrating from Windows,
+DOS tend to use this function frequently.</p>
+ 
+  <p> For more on why not to use gets type "man gets" at the console and
+read the BUGS section. </p>
+ 
+  <p></p>
+ 
+  <p>RETURN VALUE : <br>
+ segmentation fault, program crash </p>
+ 
+  <hr width="100%" size="2">   
+  <div align="right"> 	<a href="#Extra_functions">to function list...</a></div>
+ NAME :<a name=""></a>  
+  <p>SYNOPSIS :<br>
+ </p>
+  <blockquote>  </blockquote>
+ 
+  <p></p>
+ 
+  <p>DESCRIPTION : <br>
+  </p>
+ 
+  <p>RETURN VALUE : <br>
+  </p>
+ 
+  <hr width="100%" size="2">       </blockquote>
+ 
+<p></p>
+  
+<hr width="100%" size="2"> 
+<table width="100%" summary="Foot Table">
+  <tbody>
+    <tr>
+ 	<td align="left" width="33%" valign="top"> 		<a
+ href="./Introduction.html">&lt;&lt;Previous</a></td>
+ 	<td align="center" width="34%" valign="top"> 		<a href="./index.html">&lt;Home&gt;</a></td>
+ 	<td align="right" width="33%" valign="top"> 		<a
+ href="./Developer.html">Next&gt;&gt;</a></td>
+ </tr>
+ <tr>
+ 	<td align="left" width="33%" valign="top">Introduction &amp; Usage</td>
+ 	<td align="center" width="34%" valign="top"> 		<a
+ href="#libgraph_---_Implementing_Turbo_Cs_"> Top</a></td>
+ 	<td align="right" width="33%" valign="top"> 		Developer Section</td>
+ </tr>
+ 
+  </tbody>
+</table>
+ <br>
+</body>
+</html>

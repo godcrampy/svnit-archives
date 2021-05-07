@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css"
+    />
+    <title>Q3</title>
+  </head>
+
+  <body>
+    <h3>Simple Interest Calculator</h3>
+    <br />
+
+    <label for="principal"
+      >Principal Value
+      <input
+        type="number"
+        id="principal"
+        placeholder="Enter principal value"
+        required
+      />
+    </label>
+    <br />
+    <label for="rate">
+      Rate of Interest
+      <input
+        type="number"
+        id="rate"
+        placeholder="Enter rate of interest"
+        required
+      />
+    </label>
+    <br />
+    <label for="year">
+      Number of Years
+      <input type="number" id="year" placeholder="Enter number of years" />
+    </label>
+    <br />
+    <button type="submit" id="submit">Calculate Interest</button>
+
+    <script>
+      let btn = document.querySelector("#submit");
+      let err = "";
+      btn.addEventListener("click", () => {
+        let principal = document.querySelector("#principal").value;
+        let rate = document.querySelector("#rate").value;
+        let years = document.querySelector("#year").value;
+
+        let interest = (Number(principal) * Number(rate) * Number(years)) / 100;
+        localStorage.setItem("interest", interest);
+        localStorage.setItem("total", interest + Number(principal));
+        window.open("./q3_final.html", "MsgWindow", "width=400,height=400");
+      });
+    </script>
+  </body>
+</html>

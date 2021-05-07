@@ -1,0 +1,36 @@
+.TH PUTPIXEL 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+putpixel, getpixel - set/get the color of pixel at (x,y)
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>
+.LP
+.BI "int getpixel (int " x ", int " y ");"
+.br
+.BI "void putpixel (int " x ", int " y ", int " color ");"
+
+.SS \fRScheme procedure :
+	(\fBgetpixel\fR \fIx y\fR)
+.br
+	(\fBputpixel\fR \fIx y color\fR)
+
+	
+.SH DESCRIPTION
+
+\fBgetpixel()\fR gets the \fIcolor\fR of the pixel located at (\fIx\fR, \fIy\fR).
+
+\fBputpixel()\fR plots a point in the color defined by \fIcolor\fR in \fIgraphics.h\fR at (\fIx\fR, \fIy\fR).
+
+For a complete list of available colors see \fBgrconstants\fR(7).
+
+.SH RETURN VALUE
+.br
+\fBgetpixel()\fR returns the color of the given pixel.
+.br
+\fBputpixel()\fR does not return.
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBinitgraph\fR(3),     \fBgetcolor\fR(3),
+.br
+\fBsetcolor\fR(3),     \fBgrconstants\fR(7)

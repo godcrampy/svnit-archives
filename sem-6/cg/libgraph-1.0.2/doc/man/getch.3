@@ -1,0 +1,32 @@
+.TH GETCH 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+getch, getche - get a character from stdin with/without echo
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "int getch (void);"
+.br
+.BI "int getche (void);"
+.SS \fRScheme procedure :
+	(\fBgetch\fR)
+.br
+	(\fBgetche\fR)
+
+	
+.SH DESCRIPTION
+
+\fBgetch()\fR gets a character from console, and does not echo it to the screen.
+
+\fBgetche()\fR gets a character from console, and echoes it to the screen.
+
+This function can be used in both graphics and plain text mode. You can use it in any program even without graphics just by linking with libgraph. For other text functions implemented see \fBgraphicstext\fR(3)
+
+
+.SH RETURN VALUE
+Both functions return the \fIcharacter\fR read from the keyboard.
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),     \fBgraphicstext\fR(3)

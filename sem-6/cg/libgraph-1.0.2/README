@@ -1,0 +1,205 @@
+Lib Graphics -- Turbo C's graphics.h in Linux
+
+
+What is it?
+-----------	
+	It is an implementation of TC graphics.h functions in Linux using SDL --
+ Simple DirectMedia Layer (www.libsdl.org for more).
+
+	The sole objective of this package is to enable people to run programs 
+ written using graphics.h functions directly in Linux. It does not aim to be a 
+ complete graphics solution. Effort has been made to suppress flexibility and 
+ genericity in order to provide an interface closer to the original. Basically 
+ this software is provided with the sincere hope that it will prevent you from
+ booting into Windoze.
+	 
+	For more power and flexibility use libSDL directly. The website
+(libsdl.org) contains a number of links to great useful, generic and powerful 
+support libraries for SDL.
+	
+
+What do I need ?
+----------------	
+	You need to have the following installed : 
+		SDL-x.x.x.rpm 		   		-- the main SDL library
+		SDL-devel-x.x.x.rpm 		-- the developer package
+		SDL_image-x.x.x.rpm 		-- image library for fonts
+		SDL_image-devel-x.x.x.rpm 	-- image library developer 
+										package
+
+	These libaries are a standard part of most current distributions 
+ (which is why we chose SDL over SVGAlib in the first place). The libaries will
+ probably already be installed. You may have to install the developer packages. 
+	
+	SDL can render onto X or a framebuffered console(fbdev). The VGA mode console
+can be used directly through SVGAlib but we haven't tried it (on the TODO list).
+	
+	
+How to use ?
+------------
+
+	See INSTALL for instructions on how to compile.
+
+	 Just include graphics.h in your C file ( as you normally would do).
+ While compiling your applications you must link with libgraph as in :  
+	
+	$ gcc foo.c -lgraph -o foo
+	
+	If your fingers give you too much trouble then we have provided a 
+ simple script "grc" to the same effect.
+	
+	$grc foo
+	
+	You can now run your executable.
+	
+	
+IMPORTANT : 
+-----------
+	If your program goes into an infinite loop press CTRL-C. The program will 
+ quit in anywhere between 10 to 30 seconds(depending on CPU load).	
+ If the program doesn't exit you may have to restart the X-server
+ (just CTRL-BACKSPACE-ALT). We have not yet seen a complete lock-up
+ requiring a reboot.
+	
+	If this makes you uncomfortable (too slow or too sophisticated
+ for your taste), you can xkill libgraph in case of a lock-up and get 
+ nasty error messages for X.
+	
+	There exists a loop-hole in scanf. If you enter invalid input,
+ specifically text where numbers are expected, the function goes into a loop 
+ (the program would have seg-faulted or mal-functioned anyway).Here you can 
+ easily use CTRL-C to exit --- this feature is guaranteed to work. 
+	    
+	
+	
+	If you just want to use the library you have learnt all ye need to 
+ know. We have provided documentation of standard TC functions(see 
+ {prefix}/share/libgraph/index.html). For a closer look at the 
+ functions/constants provided, just glance through the header files. 
+	
+	Any problems/destructive criticism/flames may be sent on 
+		<faraz_ms@rediffmail.com> 	
+
+
+/*****************  User section END; developer section BEGINS *****************/
+
+
+	If you are a developer wanting to contribute readon...	
+	
+Files : 
+-------
+	In this package are : 
+	
+	graphics.h : the default header that includes all the others required 
+		     so that you don't have to do anything differently.
+	libgraph.c : the code for functions in graphics.h. These are mainly
+		     the basic settings and initialization functions.
+	
+	grtext.h : the functions for text manipulation -- This basic part 
+		   of this code has been borrowed from Karl Bartel's 
+		   <karlb@gmx.net> SFont library. We extended it to fit 
+		   our needs. 
+	text.c : code for functions in grtext.h
+
+	shapes.h : functions for drawing various shapes, filling and positioning. 
+	shapes.c : Code for the above definitions.
+
+	polygon.h : functions for drawing and filling polygons.
+	polygon.c :  Code for above functions. These two functions were made
+			into a separate module because the code for fillpoly() is pretty
+			healthy all by itself and requires quite a few book-keeping 
+			trivial functions.
+	
+	Makefile : We don't know how to write Makefiles. This one has been 
+		   hacked up from someone else software. If u know more than us
+		   on the subject please oblige by writing a custom Makefile
+		   for the package.
+	
+	README : That's what you are reading.
+	
+	grc : a no-brainer script to compile libgraph programs.
+	
+	./Font : Directory containing font(.png) files. There are a number of different
+		 	colors but of the same font. Default font is white. Font-color 
+		 	selection is still to be implemented. You can change the color by
+		 	changing the FONT definition in graphics.h to a different color file
+		 	and recompiling the library.
+	
+	 sample.c : small sample file to try out the library.
+		 	Just compile with
+	   			$ ./grc sample
+			and execute with
+				$ ./sample
+
+What you need ?
+---------------
+	I would suggest that you familiarize yourself with the basic SDL 
+ functions before scratching around. All the SDL functions are documented in 
+ man-pages. For a good intro, html documentation and samples refer the homepage 
+ at www.libsdl.org. 	
+	
+	
+Regarding the text functions :
+------------------------------
+	The basic code for text functions has been borrowed from 
+ Karl Bartel's <karlb@gmx.net> SFont library ( We can't seem to stress that 
+ point enough ). We actually don't understand much of the basic initialization. 
+ We just modified his output function to emulate terminal behaviour
+ (eg. scrolling of text onto newline).
+	
+	The input functions although written from scratch also borrow heavily 
+ from Karl's code. Our code is not neatly organized or efficiently written. 
+ There are parts which we think are unnecessary but are afraid to remove lest 
+ we break something. The main challenge in this code ( and one that has not yet
+ been met with ) is to emulate terminal behaviour by redirecting standard 
+ I/O functions to use the graphical screen. 
+ 
+ The reason for stressing this is that we often see/use code like
+	
+	initgraph( , , );
+	....
+	printf("Hello",,);
+	...
+	closegraph();
+	
+	Now this may seem normal in DOS but in SDL the drawing is done on a 
+ separate SDL_Surface structure while all I/O functions operate on stdin/stdout.
+ Hence we check wether we are in graphics mode by setting and querying an 
+ environment variable --- "LIBGRAPHICS_ACTIVE=1". Correspondingly we use 
+ either our native functions or call variadic printf/scanf functions. You  
+ might want to look up the variadic call conventions in  "$info libc". 
+
+
+CAVEAT :  scanf input buffer is limited to 256 characters. This means that it 
+ will stop accepting input after you enter 256 characters. This behaviour is 
+ unlike the normal scanf function that allows you to enter arbitrarily long 
+ strings and scans only the required amount of characters. You can increase the 
+ buffer size by changing the definition SCAN_BUF in grtext.h and recompiling.
+
+	Another thing is that scanf can only perform 10 input conversions in 
+ one call i.e. it can process an input string with maximum 10 %. Even this 
+ feature is a pure hack since "C does not provide any way of determining the 
+ number of arguments recieved" by a variadic function like scanf. Basically we 
+ just scan the format string over an arbitrary constant string of 10 integers 
+ to determine the number of arguments and scan the users input at every enter 
+ keypress to see if we've got all we expected. 
+	
+	Unfortunately this only fixes the number-of-arguments problem. There is
+ still no way of determining what rubbish the user has entered, which is why the
+ function goes into a loop when characters are entered where numbers are 
+ expected. This was overcome by providing a special clause CTRL-C to quit the 
+ program altogether. Don't blame us, the info-page itself says that there is 
+ no way of recovering from a scanf error. 	
+	 
+	  
+To try new functions : 
+----------------------
+	If you have implemented a function which has not yet been included, 
+ I suggest that you write it in a separate header or program and test it before  
+ adding it to the main library. This way you can tweak it without recompiling
+ the library.	   
+	    
+Libtool :
+--------
+ 	Libtool is used for cascaded linking of dynamic libraries. For more see
+		$ info libtool

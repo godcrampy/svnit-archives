@@ -1,0 +1,27 @@
+.TH DETECTGRAPH 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME 
+detectgraph - set the highest available graphics mode
+
+.SH SYNOPSIS
+.SS \fRC function:
+.B "include <graphics.h>"
+.LP
+.BI "void detectgraph(int *" graphdriver ", int *" graphmode ");"
+
+.SS \fRScheme procedure :
+	(\fBdetectgraph\fR \fIgraphdriver\fR \fIgraphmode\fR)
+
+.SH DESCRIPTION
+\fBdetectgraph()\fR initializes the graphics system to the highest mode available. The mode selected is returned in \fIgraphmode\fR.
+
+Since the \fIgraphdriver\fR argument is ignored the mode set is always \fIVGAMAX\fR (i.e 800x600x8 windowed). Hence after this call \fIgraphmode\fR is always equal to \fIVGAMAX\fR.
+
+For details of the different drivers and modes available see \fBgrconstants\fR(7).
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),     \fBgrconstants\fR(7)

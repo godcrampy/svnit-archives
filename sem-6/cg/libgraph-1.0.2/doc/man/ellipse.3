@@ -1,0 +1,41 @@
+.TH ELLIPSE 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+ellipse - draw an ellipse given center, radii and angle range
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "ellipse (int " xc ", int " yc ", int " stangle ", int " endangle "," 
+.br
+.BI "			int " xradius ", int " yradius ");"
+
+.SS \fRScheme procedure :
+	(\fBellipse\fR \fIxc yc stangle endangle xradius yradius\fR)
+
+.SH DESCRIPTION
+
+\fBellipse()\fR draws an elliptical arc in the current drawing color.
+
+.SS Arguments :
+.br
+(\fIxc\fR, \fIyc\fR) -- Center of ellipse
+.br
+\fIxradius\fR -- Horizontal axis
+.br
+\fIyradius\fR -- Vertical axis
+.br
+\fIstangle\fR -- Starting angle
+.br
+\fIendangle\fR -- Ending angle
+
+The ellipse travels from \fIstangle\fR to \fIendangle\fR. 
+If \fIstangle\fR = 0 and \fIendangle\fR = 360, the call to \fBellipse()\fR draws a complete ellipse.
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),    \fBfillellipse\fR(3),    \fBsector\fR(3)

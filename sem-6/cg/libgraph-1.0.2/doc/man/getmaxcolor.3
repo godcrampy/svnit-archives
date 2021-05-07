@@ -1,0 +1,27 @@
+.TH GETMAXCOLOR 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+getmaxcolor - get maximum possible value of color in current pallete
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "int getmaxcolor(void);"
+
+.SS \fRScheme procedure :
+	(\fBgetmaxcolor\fR)
+
+.SH DESCRIPTION
+\fBgetmaxcolor()\fR returns the highest valid \fIcolor\fR value that can be passed to \fBsetcolor(3)\fR for the current \fIgraphics driver\fR and \fImode\fR.
+
+In the current implementation of \fBlibgraph\fR this function always returns \fI15\fR (for the default pallete) since there is no provision for defining custom palletes.
+
+For a complete listing of the available pallete see \fBgrconstants\fR(7)
+
+.SH RETURN VALUE
+.br
+Returns the highest available \fIcolor\fR value.
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),     \fBgrconstants\fR(3)

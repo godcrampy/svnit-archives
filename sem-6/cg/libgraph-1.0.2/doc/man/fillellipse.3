@@ -1,0 +1,45 @@
+.TH FILLELLIPSE 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+fillellipse, sector - draw a filled ellipse/sector given center, radii
+
+.SH SYNOPSIS
+.SS \fR C function :
+.B "#include <graphics.h>"
+.LP
+.BI "void fillellipse (int " xc ", int " yc ", int " xradius ", int " yradius ");"
+.br
+.BI "void sector(int " xc ", int " yc ", int " stangle ", int " endangle ","
+.br
+.BI "				int " xradius ", int " yradius ");"
+
+.SS \fR Scheme procedure :
+	(\fBfillellipse\fR \fIxc yc xradius yradius\fR)
+.br
+	(\fBsector\fR \fIxc yc stangle endangle xradius yradius\fR)
+
+.SH DESCRIPTION
+
+\fBfillellipse()\fR draws an ellipse, then fills the ellipse with the current fill color.
+
+\fBsector()\fR draws an elliptical pie slice in the current drawing color, then fills it using the color.
+
+.SS Arguments :
+.br
+(\fIxc\fR, \fIyc\fR) -- Center of ellipse
+.br
+\fIxradius\fR -- Horizontal axis
+.br
+\fIyradius\fR -- Vertical axis
+.br
+\fIstangle\fR -- Starting angle
+.br
+\fIendangle\fR -- Ending angle
+
+The sector travels from \fIstangle\fR to \fIendangle\fR. If \fIstangle\fR = 0 and \fIendangle\fR = 360, the call to \fBsector()\fR draws a complete filled ellipse similar to \fBfillellipse()\fR.
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),     \fBellipse\fR(3)

@@ -1,0 +1,35 @@
+.TH BAR3D 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME 
+bar3d - draw a 3-dimensional bar given corner co-ordinates and depth
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void bar3d (int " left ", int " top, " int " right ", int " bottom ","
+.br
+.BI "				int " depth ", int " topflag ");"
+
+.SS \fRScheme procedure :
+	(\fBbar3d\fR \fIleft top right bottom depth topflag\fR)
+
+.SH DESCRIPTION
+
+\fBbar3d()\fR draws a three-dimensional rectangular bar, then fills it using the current fill color.
+
+.SS Arguments :
+.br
+\fIdepth\fR -- Bar's depth in pixels
+.br
+\fItopflag\fR -- top surface is drawn on the bar(3d-dimensional)
+.br
+(\fIleft\fR, \fItop\fR) -- Rectangle(front-face) upper-left corner
+.br
+(\fIright\fR, \fIbottom\fR) -- Rectangle(front-face) lower-right corner
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),       \fBbar\fR(3)

@@ -1,0 +1,9 @@
+<!ELEMENT bookstore (book)*>
+<!ELEMENT book (title,author,year,price)>
+<!ATTLIST book category (COOKING|CHILDREN|WEB) "GENERAL">
+<!ATTLIST book id ID #REQUIRED>
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title lang NMTOKEN #REQUIRED>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT price (#PCDATA)>

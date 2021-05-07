@@ -1,0 +1,142 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="lib/bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="lib/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css"
+    />
+    <title>InstaSearch</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">InstaSearch</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div id="modal-body" class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1 class="display-3">Welcome to InstaSearch</h1>
+          <h3>Sign In or Register to Continue</h3>
+        </div>
+        <div class="col px-5">
+          <h1>Register</h1>
+          <div class="mb-3">
+            <label for="register-username" class="form-label">Username</label>
+            <input
+              type="text"
+              name=""
+              class="form-control"
+              id="register-username"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              aria-describedby="emailHelp"
+              id="register-email"
+            />
+            <div id="emailHelp" class="form-text">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="register-password"
+            />
+          </div>
+          <button type="submit" id="register-button" class="btn btn-primary">
+            Register
+          </button>
+        </div>
+        <div class="col">
+          <h1>Login</h1>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              aria-describedby="emailHelp"
+              id="login-email"
+            />
+            <div id="emailHelp" class="form-text">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input type="password" class="form-control" id="login-password" />
+          </div>
+          <button type="submit" id="login-button" class="btn btn-primary">
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="js/constants.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/index.route.js"></script>
+  </body>
+</html>

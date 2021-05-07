@@ -1,0 +1,42 @@
+.TH LIBGRAPH 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API
+.SH NAME
+graphicstext - Text related functions provided by libgraph
+
+.SS Functions 
+printf, scanf, getchar, putchar
+
+
+.SH SYNOPSIS :
+.B #include <graphics.h>
+.LP
+.BI "int printf (const char * " format " , ...);"
+.br
+.BI "int scanf (const char * " format " , ...);"
+.br
+.BI "int getchar (void);"
+.br
+.BI "int putchar (int " character ");"
+
+.SS DESCRIPTION :
+
+These are the normal \fBscanf\fR(3), \fBprintf\fR(3), \fBgetchar\fR(3), \fBputchar\fR(3) functions hacked up to work in graphics mode (i.e. in the libgraph window).
+
+Remember that no other input-output functions save those listed here(namely \fBprintf\fR(3), \fBscanf\fR(3), \fBgetch\fR(3), \fBgetchar\fR(3), \fBputchar\fR(3), ...) will work in graphics mode. All other functions act on the \fIstdin\fR, \fIstdout\fR which is the console from where you are running this program.
+
+.SS NOTE: 
+In graphics mode scanf has a maximum input-buffer of 256 characters ( as set by the \fISCAN_BUF\fR constant in \fIgrtext.h\fR) and cannot perform more than 10 %-conversions in a single call.
+
+.SS NOTE: 
+If you enter invalid input (namely characters where numbers are expected) scanf will go into an infinite loop. You must use \fIControl-C\fR to quit the program and try-again ( the program would have seg-faulted anyway ).
+
+.SH RETURN VALUE :
+Same as normal \fBprintf\fR(3), \fBscanf\fR(3), \fBgetchar\fR(3), \fBputchar\fR(3)
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),       \fBinitgraph\fR(3),       \fBouttext\fR(3),
+.br
+\fBouttextxy\fR(3),      \fBsetfontcolor\fR(3),    \fBgetfontcolor\fR(3)
+.br
+\fBprintf\fR(3),         \fBscanf\fR(3),           \fBgetchar\fR(3), 
+.br
+\fBputchar\fR(3)

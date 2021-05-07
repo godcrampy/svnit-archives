@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+    <title>Q5 Final</title>
+    <style>
+        ul {
+            list-style: none;
+
+        }
+
+        label {
+            font-size: 18px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 200;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>List of events</h2>
+        <ul class="events">
+        </ul>
+    </div>
+    <script>
+        let list = document.querySelector("ul.events");
+        list.innerHTML = '';
+        let events = localStorage.getItem("events");
+        if (events.length === 0) {
+            list.innerHTML += 'No items in the list';
+        } else {
+            let arr = events.split(',');
+            console.log(arr);
+            Array.from(arr).forEach((elm) => {
+                let item = document.createElement("li");
+                let liContent = `${elm}`;
+                item.innerHTML = liContent; 
+                list.appendChild(item);
+            });
+        }
+    </script>
+</body>
+
+</html>

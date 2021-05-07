@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo gcc $1.c -lgraph -o $1
+
+gcc -g $1.c -lgraph -Wall -o $1

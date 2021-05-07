@@ -1,0 +1,30 @@
+.TH MOVETO 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+moveto, moverel - move absolute/relative to current position
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>
+.LP
+.BI "void moveto (int " x ", int " y ");"
+.br
+.BI "void moverel (int " dx ", int " dy ");"
+
+.SS \fRScheme procedure :
+	(\fBmoveto\fR \fIx y\fR)
+.br
+	(\fBmoverel\fR \fIdx dy\fR)
+
+.SH DESCRIPTION
+
+.B moveto()
+moves the current position (\fICP\fR) to viewport position (\fIx\fR, \fIy\fR).
+
+\fBmoverel()\fR moves the current position(\fICP\fR) \fIdx\fR pixels in the x-direction and \fIdy\fR pixels in the y-direction.
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBinitgraph\fR(3),     \fBgetx\fR(3),    \fBgety\fR(3)

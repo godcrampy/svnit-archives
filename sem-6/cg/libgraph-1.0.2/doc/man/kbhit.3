@@ -1,0 +1,45 @@
+.TH KBHIT 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+kbhit - check for key-stroke
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>
+.LP
+.BI "int kbhit (void);"
+.SS \fRScheme procedure :
+	(\fBkbhit\fR)
+
+.SH DESCRIPTION
+
+\fBkbhit()\fR checks to see if a keystroke is currently available.
+
+Any available keystroke can be retrieved using \fBgetchar(3)\fR or \fBgetch(3)\fR.
+
+.SS Example:
+while(!\fBkbhit()\fR)  /* Loops until a key is pressed */
+.br
+{
+.br
+\fR	.....
+.br
+\fR	.....
+.br
+\fR	.....
+.br
+}
+
+This function can be used both in graphics mode and plain text. For other functions related to textmode see \fBgraphicstext\fR(3)
+
+.SS Note : 
+In text mode use \fBgetchar(3)\fR (not \fBgetch(3)\fR) to retrieve the keystroke since \fBgetch(3)\fR flushes the input buffer before reading.
+
+.SH RETURN VALUE
+On success (if a \fIkeystroke\fR is available) \fBkbhit()\fR returns the \fIkeystroke\fR.
+.br
+If a \fIkeystroke\fR is not available it returns \fI0\fR.
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBinitgraph\fR(3),      \fBgetchar\fB(3),
+.br
+\fBgetch(0),        \fBgraphicstext\fR(3)

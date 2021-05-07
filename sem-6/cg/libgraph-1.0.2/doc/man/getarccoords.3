@@ -1,0 +1,39 @@
+.TH GETARCCOORDS 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+getarccoords - get the parameters of the last call to arc(3)
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "include <graphics.h>"
+.LP
+.BI "void getarccoords (struct arccoordstype *" arccoords ");"
+.SS \fRScheme function :
+	(\fBgetarccoords\fR \fIarccoords\fR)
+
+	
+.SH DESCRIPTION
+
+\fBgetarccoords()\fR puts information about the last call to \fBarc(3)\fR in the arccoordstype structure \fI*arccoords\fR.
+
+.SS Arguments :
+The arccoordstype structure is defined as follows :
+.SS \fIstruct arccoordstype\fR 
+.br
+{
+.br
+	int \fIx\fR, \fIy\fR; /* center point of arc*/
+.br
+	int \fIxstart\fR, \fIystart\fR; /* start position */
+.br
+	int \fIxend\fR, \fIyend\fR; /* end position */
+.br
+};
+
+.SS Note :
+These values are useful if you need to make a line meet the end of an arc.
+
+.SH RETURN VALUE 
+None / \fI#<unspecified>\fR
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),    \fBarc\fR(3),   \fBpieslice\fR(3)

@@ -1,0 +1,35 @@
+.TH LINE 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME 
+line, lineto, linerel - draw a line between two points
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>
+.LP
+.BI "void line (int " x1 ", int " y1 ", int " x2 ", int " y2 ");"
+.br
+.BI "void lineto (int " x ", int " y ");"
+.br
+.BI "void linerel (int " dx ", int " dy ");"
+
+.SS \fRScheme procedure :
+	(\fBline\fR \fIx1 y1 x2 y2\fR)
+.br
+	(\fBlineto\fR \fIx y\fR)
+.br
+	(\fBlinerel\fR \fIdx dy\fR)
+
+.SH DESCRIPTION
+
+\fBline()\fR draws a line from (\fIx1\fR, \fIy1\fR) to (\fIx2\fR, \fIy2\fR) using the current color. It does not update the current position (\fICP\fR).
+
+\fBlineto()\fR draws a line from the current position \fICP\fR to (\fIx\fR, \fIy\fR), then moves the \fICP\fR to (\fIx\fR, \fIy\fR).
+
+\fBlinerel()\fR draws a line from the \fICP\fR to a point that is a relative distance (\fIdx\fR, \fIdy\fR) from the \fICP\fR, then advances the \fICP\fR by (\fIdx\fR, \fIdy\fR).
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBinitgraph\fR(3)

@@ -1,0 +1,31 @@
+.TH GETX 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME 
+getx, gety - get the current x/y screen co-ordinates
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>
+.LP
+.BI "int getx (void);"
+.br
+.BI "int gety (void);"
+
+.SS \fRScheme procedure :
+	(\fBgetx\fR)
+.br
+	(\fBgety\fR)
+
+.SH DESCRIPTION
+
+\fBgetx()\fR returns the x-coordinate of the current graphics position(\fICP\fR).
+
+\fBgety()\fR returns the y-coordinate of the current graphics position(\fICP\fR).
+
+.SH RETURN VALUE
+.br
+\fBgetx()\fR returns x-coordinate of current position.
+.br
+\fBgety()\fR returns  y-coordinate of current position.
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),    \fBmoveto\fR(3),    \fBmoverel\fR(3)

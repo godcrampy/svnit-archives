@@ -1,0 +1,46 @@
+.TH ARC 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+arc, pieslice - draw an arc or pieslice of given angle-range
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void arc (int " xc ", int " yc ", int " stangle ", int " endangle ", int " radius ");"
+.br
+.BI "void pieslice (int " xc ", int " yc ", int " stangle ", int " endangle ", int " radius ");"
+
+.SS \fRScheme procedure :
+	(\fBarc\fR \fIxc yc stangle endangle radius\fR)
+.br
+	(\fBpieslice\fR \fIxc yc stangle endangle radius\fR)
+
+.SH DESCRIPTION
+
+\fBarc()\fR draws a circular arc using the current drawing color.
+.br
+.BR ** " See also " getarccoords(3).
+
+\fBpieslice()\fR draws and fills a pie-slice in the current drawing color.
+
+.SS Arguments :
+
+(\fIxc\fR, \fIyc\fR) -- Center point of arc or pieslice.
+.br
+\fIstangle\fR -- start angle in degrees(as measured on the standard circle).
+.br
+\fIendangle\fR -- end angle in degrees(as measured on the standard circle).
+.br
+\fIradius\fR -- radius of arc or pieslice.
+
+The \fBarc()\fR or \fBpieslice()\fR travels from \fIstangle\fR to \fIendangle\fR. 
+ 
+If \fIstangle\fR = 0 and \fIendangle\fR = 360 the call to \fBarc()\fR or \fBpieslice()\fR draws a complete circle.
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBgetarccoords\fR(3),    \fBcircle\fR(3)

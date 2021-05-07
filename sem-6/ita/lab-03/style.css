@@ -1,0 +1,22 @@
+#snakeboard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#score {
+  text-align: center;
+  font-size: 140px;
+}
+#end {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
+  color: red;
+}
+#gamepad {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

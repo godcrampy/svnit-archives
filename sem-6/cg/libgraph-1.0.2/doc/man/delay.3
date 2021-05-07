@@ -1,0 +1,29 @@
+.TH DELAY 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+delay - sleep for specified milliseconds
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>
+.LP 
+.BI "int delay (float " milliseconds ");"
+.SS \fRScheme procedure :
+	(\fBgr-delay\fR \fImilliseconds\fR)
+
+.SH DESCRIPTION
+
+\fBdelay()\fR provides accurate time delays using the \fBnanosleep(2)\fR function to give *sub-millisecond* granularity. Hence the \fImilliseconds\fR argument is a float and not an int.
+
+.SS Note :
+This function differs from the original implementation by it's ability to accept fractional millisecond arguments
+
+.SS Note :
+Time-delays produced by \fBdelay()\fR suffer from same accuracy limits (minimum=specified <--> maximum=+10ms) as \fBnanosleep(2)\fR
+
+.SH RETURN VALUE
+Number of \fImilliseconds\fR delayed (truncated).
+
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),     \fBsleep\fR(3),      \fBnanosleep\fR(2)

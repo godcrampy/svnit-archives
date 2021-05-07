@@ -1,0 +1,37 @@
+.TH DRAWPOLY 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+drawpoly, fillpoly - draw/fill a polygon given a set of points
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void drawpoly (int " numpoints ", int *" polypoints ");"
+.br
+.BI "void fillpoly (int " numpoints ", int *" polypoints ");"
+
+.SS \fRScheme procedure :
+	(\fBdrawpoly\fR polypoints\fR)
+.br
+	(\fBfillpoly\fR polypoints\fR)
+
+.SH DESCRIPTION
+
+\fBdrawpoly()\fR draws a polygon using the current drawing color.
+
+\fBfillpoly()\fR draws the outline of a polygon using the current color, then fills the polygon using the current color.
+
+.SS Arguments :
+\fInumpoints\fR -- Specifies number of points
+.br
+\fI*polypoints\fR -- Points to an array of (\fInumpoints\fRx2) integers Each pair of integers gives the \fIx\fR and \fIy\fR coordinates of a point on the polygon.
+
+To draw a closed figure with \fIN\fR vertices, you must pass \fIN+1\fR coordinates to \fBdrawpoly()\fR, where the \fINth\fR coordinate == the \fI0th\fR coordinate.
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3)

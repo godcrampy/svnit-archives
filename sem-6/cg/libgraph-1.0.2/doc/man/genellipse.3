@@ -1,0 +1,43 @@
+.TH GENELLIPSE 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+genellipse - draw a general ellipse (not aligned to co-ordinate axes)
+
+.SH SYNOPSIS
+.SS \fR C function :
+.B "#include <graphics.h>"
+.LP
+.BI "void genellipse (int " xc ", int " yc ", int " xradius ", int " yradius ", float " angle ");"
+.br
+.SS \fR Scheme procedure :
+	(\fBgenellipse\fR \fIxc yc xradius yradius angle\fR)
+
+
+.SH DESCRIPTION
+
+\fBgenellipse()\fR draws a general ellipse i.e. one that may/may not be aligned with the co-ordinate axes.
+Note that this function does not take \fIstangle\fR or \fIendangle\fR like \fBellipse\fR - hence always a complete ellipse is generated. 
+
+.SS Note:
+This function is a libgraph-extension - it is not available in  TurboC.
+
+.SS Arguments :
+.br
+(\fIxc\fR, \fIyc\fR) -- Center of ellipse
+.br
+\fIxradius\fR -- Horizontal axis
+.br
+\fIyradius\fR -- Vertical axis
+.br
+\fIangle\fR -- Tilt angle
+
+The tilt \fIangle\fR is the angle between the major axis of the ellipse and the positive X-axis.
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),     \fBellipse\fR(3),
+.br
+\fBfillellipse\fR(3)

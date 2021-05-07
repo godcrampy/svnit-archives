@@ -1,0 +1,46 @@
+.TH GETMAXMODE 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+getmaxmode - find maximum available video mode
+.br
+getmoderange - find range of valid video modes
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "int getmaxmode (void);"
+.br
+.BI "void getmoderange (int " graphdriver ", int *" lomode ", int *"himode ");"
+.SS \fRScheme procedure :
+	(\fBgetmaxmode\fR)
+.br
+	(\fBgetmoderange\fR \fIgraphdriver lomode himode\fR)
+
+	
+.SH DESCRIPTION
+
+\fBgetmaxmode()\fR lets you find out the maximum mode number for the currently loaded driver, directly from the driver.
+
+The minimum mode is \fI0\fR. In the current implementation of libgraph this function always returns \fIVGA1024\fR.
+
+\fBgetmoderange()\fR gets the range of valid graphics modes for the given graphics driver.
+
+For a complete description of available modes and ranges see \fBgrconstants\fR(7).
+
+.SS Arguments :
+.br
+\fIgraphdriver\fR -- If \fIgraphdriver\fR == -1, \fBgetmoderange()\fR gets the currently loaded driver modes. If \fIgraphdriver\fR specifies an invalid graphics driver, both \fI*lomode\fR and \fI*himode\fR are set to -1
+.LP
+\fIlomode\fR -- Points to location where lowest permissible mode value is returned.
+.LP
+\fIhimode\fR -- Points to location where highest permissible mode value is returned.
+
+.SH RETURN VALUE
+.br
+\fBgetmaxmode()\fR returns the maximum mode number for the current driver.
+.br
+\fBgetmoderange()\fR does not return.
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),     \fBgrconstants\fR(3)

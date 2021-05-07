@@ -1,0 +1,270 @@
+
+<html>
+<head>
+  <title>libgraph Developer Section</title>
+</head>
+<body>
+               
+<center>
+<big><big>
+<a name="libgraph_---_Implementing_Turbo_Cs_">
+	</a>
+	libgraph  ---  Implementing Turbo C's graphics on GNU/Linux 
+</big>
+</big>
+</center>
+<br>
+
+
+
+<table width="100%" summary="Head table">
+<tr>
+	<td align="left" width="33%" valign="top">
+		<a href="./Function_List.html">&lt;&lt;Previous</a></td>
+	<td align="center" width="34%" valign="top"></td>
+	<td align="right" width="33%" valign="top">
+		<a href="./Bugs.html">Next&gt;&gt;</a></td>
+</tr>
+<tr>
+	<td align="left" width="33%" valign="top">List of Functions</td>
+	<td align="center" width="34%" valign="top"></td>
+	<td align="right" width="33%" valign="top">
+		Bugs & Caveats</td>
+</tr>
+</table>
+
+
+<hr width="100%" size="2"> 
+<p>
+<br>
+<blockquote>         
+<i><big><big>&nbsp;Developer Section</big></big></i>
+</blockquote>         
+<blockquote>
+<p>
+	If you are a developer wanting to contribute readon...	
+</p>
+</blockquote>
+     
+<blockquote>                  
+  <div align="left">                  
+  <ul>
+         <li><big><a href="#files">Files in distribution</a>&nbsp;</big><br></li>
+  </ul>
+                   
+  <ul>
+         <li><big><a href="#need_to_know">What you need to know...</a></big></big><br></li>
+  </ul>
+                   
+  <ul>
+         <li><big><a href="#text_functions">Regarding text functions?</a></big></li>
+  </ul>
+  <ul>
+         <li><big><a href="#extending">Extending libgraph</a></big></li>
+  </ul>
+  <ul>
+         <li><big><a href="#libtool">About libtool</a></big></li>
+  </ul>
+      </div>
+      </blockquote>
+<br>           
+
+
+
+
+</p>         
+<hr width="100%" size="2"> 
+<p>
+<blockquote>    
+
+	
+
+<blockquote><li><big><i>
+<a name="files"><a href="#files">Files in Distribution: </a></a>
+</i></big></li></blockquote>
+<p>
+	In this package are : 
+</p><p>	
+	graphics.h : the default header that includes all the others required 
+		     so that you don't have to do anything differently.
+</p><p>	
+	libgraph.c : the code for functions in graphics.h. These are mainly
+		     the basic settings and initialization functions.
+</p><p>	
+	
+	grtext.h : the functions for text manipulation -- This basic part 
+		   of this code has been borrowed from Karl Bartel's 
+		   <karlb@gmx.net> SFont library. We extended it to fit 
+		   our needs. 
+</p><p>	
+	text.c : code for functions in grtext.h
+</p><p>	
+
+	shapes.h : functions for drawing various shapes, filling and positioning. 
+</p><p>	
+	shapes.c : Code for the above definitions.
+</p><p>	
+
+	polygon.h : functions for drawing and filling polygons.
+</p><p>	
+	polygon.c :  Code for above functions. These two functions were made
+			into a separate module because the code for fillpoly() is pretty
+			healthy all by itself and requires quite a few book-keeping 
+			non-trivial functions.
+</p><p>	
+	
+	Makefile : We don't know how to write Makefiles. This one has been 
+		   hacked up from someone else software. If u know more than us
+		   on the subject please oblige by writing a custom Makefile
+		   for the package.
+	
+</p><p>	
+	README : That's what you are reading.
+	
+</p><p>	
+	grc : a no-brainer script to compile libgraph programs.
+	
+</p><p>	
+	./Font : Directory containing font(.png) files. There are a number of different
+		 	colors but of the same font. Default font is white. Font-color 
+		 	selection is still to be implemented. You can change the color by
+		 	changing the FONT definition in graphics.h to a different color file
+		 	and recompiling the library.
+</p><p>	
+	
+	 sample.c : small sample file to try out the library.
+		 	Just compile with
+	   			$ ./grc sample
+			and execute with
+				$ ./sample
+</blockquote>
+</p><p>	
+<hr width="100%" size="2"> 
+</p>
+<blockquote>
+<p>
+
+<blockquote><li><big><i>
+<a name="need_to_know"><a href="#need_to_know">What you need to know.... </a></a>
+</i></big></li></blockquote>
+
+</p><p>	
+
+	I would suggest that you familiarize yourself with the basic SDL 
+ functions before scratching around. All the SDL functions are documented in 
+ man-pages. For a good intro, html documentation and samples refer the homepage 
+ at <i><a href="http:\\www.libsdl.org">www.libsdl.org</a></i>
+	
+</p><p>	
+</blockquote>	
+<hr width="100%" size="2"> 
+<blockquote>
+</p>
+<p>
+<blockquote><li><big><i>
+<a name="text_functions"><a href="#text_functions">Reqarding text functions... </a></a>
+</i></big></li></blockquote>
+</p>
+<p>
+
+	The basic code for text functions has been borrowed from 
+ Karl Bartel's <karlb@gmx.net> SFont library ( We can't seem to stress that 
+ point enough ). We actually don't understand much of the basic initialization. 
+ We just modified his output function to emulate terminal behaviour
+ (eg. scrolling of text onto newline).
+</p><p>	
+	The input functions although written from scratch also borrow heavily 
+ from Karl's code. Our code is not neatly organized or efficiently written. 
+ There are parts which we think are unnecessary but are afraid to remove lest 
+ we break something. The main challenge in this code ( and one that has not yet
+ been met with ) is to emulate terminal behaviour by redirecting standard 
+ I/O functions to use the graphical screen. 
+</p><p>	
+ 
+ The reason for stressing this is that we often see/use code like
+</p><p>	
+<blockquote>	
+	initgraph( , , );<br>
+	....<br>
+	printf("Hello",,);<br>
+	...<br>
+	closegraph();<br>
+</blockquote>
+</p><p>	
+	Now this may seem normal in DOS but in SDL the drawing is done on a 
+ separate SDL_Surface structure while all I/O functions operate on stdin/stdout.
+ Hence we check wether we are in graphics mode by setting and querying an 
+ environment variable --- "LIBGRAPHICS_ACTIVE=1". Correspondingly we use 
+ either our native functions or call variadic printf/scanf functions. You  
+ might want to look up the variadic call conventions in  "$info libc". 
+
+</p>
+<p>	
+</blockquote.	
+<hr width="100%" size="2"> 
+<blockquote>
+</p>
+<p>
+<blockquote><li><big><i>
+<a name="extending"><a href="#extending">To try new functions..</a></a>
+</i></big></li></blockquote>
+</p>
+<p>	  
+	If you have implemented a function which has not yet been included, 
+ I suggest that you write it in a separate header or program and test. 
+ This way you can tweak it without recompiling the library. Once you are sure 
+ of it's correctness mail it to me and it will be added to the main source
+ (with attribution).	   
+ 
+</p><p>	
+</blockquote>	
+<hr width="100%" size="2"> 
+<blockquote>
+</p>
+<p>
+<blockquote><li><big><i>
+<a name="libtool"><a href="#libtool">Libtool :</a></a>
+</i></big></li></blockquote>
+</p><p>	     
+
+	If you read the Makefile you will find that libtool has been used to 
+ link the library. This is because libgraph itself links to a number of 
+ libraries  and we do not want to specify each one at compile time. To see how
+ many dynamic libraries actually get involved type
+</p><p>
+<blockquote>
+	$ldd &lt;yourexecutable&gt; 
+</blockquote>
+</p><p>
+ To find more about libtool "$info libtool".		 	 
+</p>
+
+
+
+
+
+
+
+
+</blockquote>
+   </p>  
+<hr width="100%" size="2">
+<table width="100%" summary="Foot table">
+<tr>
+	<td align="left" width="33%" valign="top">
+		<a href="./Function_List.html">&lt;&lt;Previous</a></td>
+	<td align="center" width="34%" valign="top">
+		<a href="./index.html">&lt;Home&gt;</a></td>
+	<td align="right" width="33%" valign="top">
+		<a href="./Bugs.html">Next&gt;&gt;</a></td>
+</tr>
+<tr>
+	<td align="left" width="33%" valign="top">List of Functions</td>
+	<td align="center" width="34%" valign="top">
+		<a href="#libgraph_---_Implementing_Turbo_Cs_"> Top</a></td>
+	<td align="right" width="33%" valign="top">
+		Bugs & Caveats</td>
+</tr>
+</table>
+</body>
+</html>

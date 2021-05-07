@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css"
+    />
+    <title>Q5</title>
+    <style>
+      div.container {
+        display: none;
+      }
+
+      ul {
+        list-style: none;
+      }
+      label {
+        font-size: 18px;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-weight: 200;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Subscribe to SVNIT Newsletter</h2>
+    <label for="event">I want to subscribe!</label>
+    <input type="checkbox" id="event" />
+    <div class="container">
+      <h2>List of events</h2>
+      <ul class="events">
+        <li>
+          <label for="drishti">Drishti events</label>
+          <input type="checkbox" id="drishti" />
+        </li>
+        <li>
+          <label for="chapters">Student chapters</label>
+          <input type="checkbox" id="chapters" />
+        </li>
+        <li>
+          <label for="sttp">STTP</label>
+          <input type="checkbox" id="sttp" />
+        </li>
+        <li>
+          <label for="summer">Summer schools</label>
+          <input type="checkbox" id="summer" />
+        </li>
+        <li>
+          <label for="talks">Talks</label>
+          <input type="checkbox" id="talks" />
+        </li>
+        <li>
+          <label for="conference">Conferences</label>
+          <input type="checkbox" id="conference" />
+        </li>
+        <li>
+          <label for="workshop">Workshops</label>
+          <input type="checkbox" id="workshop" />
+        </li>
+        <li>
+          <label for="nptel">NPTEL</label>
+          <input type="checkbox" id="nptel" />
+        </li>
+      </ul>
+      <button type="submit" id="submit">Yes, I want these events!</button>
+    </div>
+    <script src="./script5.js"></script>
+  </body>
+</html>

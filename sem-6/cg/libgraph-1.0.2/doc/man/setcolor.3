@@ -1,0 +1,49 @@
+.TH SETCOLOR 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+setcolor, getcolor -  set/get the current drawing color
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void setcolor (int " color ");"
+.br
+.BI "int getcolor (void);"
+
+.SS \fRScheme procedure :
+	(\fBsetcolor\fR \fIcolor\fR)
+.br
+	(\fBgetcolor\fR)
+	
+.SH DESCRIPTION
+
+\fBgetcolor()\fR returns the current drawing \fIcolor\fR.
+
+\fBsetcolor()\fR sets the current drawing color to \fIcolor\fR, which can range from \fI0\fR to \fBgetmaxcolor(3)\fR.
+
+To select a drawing color with \fBsetcolor()\fR, you can pass either the \fIcolor number\fR or the equivalent \fIcolor name\fR.
+
+The drawing color is the value that pixels are set to when the program draws lines, etc.
+
+.SS Example :
+.RS 8
+setcolor (RED);
+.br
+line (0, 0, getmaxx (), getmaxy ()); \fI//draw a red line\fR
+.RE 8
+
+
+The complete list of drawing colors is in \fBgrconstants\fR(7).
+.SS Note : 
+The default drawing color is \fIWHITE\fR.
+
+.SH RETURN VALUE
+.br
+\fBgetcolor()\fR returns the current drawing \fIcolor\fR.
+.br
+\fBsetcolor()\fR does not return.
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBinitgraph\fR(3),     \fBgrconstants\fR(7),
+.br
+\fBsetbkcolor\fR(3),   \fBgetbkcolor\fR(3)

@@ -1,0 +1,112 @@
+<html>
+<head>
+  <title>libgraph Bugs & Caveats</title>
+</head>
+<body>
+               
+<center>
+<big><big>
+<a name="libgraph_---_Implementing_Turbo_Cs_">
+	</a>
+	libgraph  ---  Implementing Turbo C's graphics on GNU/Linux 
+</big>
+</big>
+</center>
+<br>
+
+
+
+<table width="100%" summary="Head table">
+<tr>
+	<td align="left" width="33%" valign="top">
+		<a href="./Developer.html">&lt;&lt;Previous</a></td>
+	<td align="center" width="34%" valign="top"></td>
+	<td align="right" width="33%" valign="top">
+		<a href="./COPYING.html">Next&gt;&gt;</a></td>
+</tr>
+<tr>
+	<td align="left" width="33%" valign="top">Developer Section</td>
+	<td align="center" width="34%" valign="top"></td>
+	<td align="right" width="33%" valign="top">
+		COPYING Information</td>
+</tr>
+</table>
+
+     
+<hr width="100%" size="2"><br>
+   
+<p>
+<blockquote>         
+<i><big><big>&nbsp;Bugs &amp; Caveats</big></big></i>
+</blockquote>         
+<p>	
+
+<blockquote>
+<big><li><i><a href="#scanf">
+scanf()
+</a></i></li></big>
+</blockquote>
+
+
+<hr width="100%" size="2"><br>
+
+<blockquote>
+
+
+
+<blockquote>
+<li><i><a name="scanf"><a href="#scanf">
+scanf()
+</a></a></i></li>
+</blockquote>
+
+<i>CAVEAT</i> :  scanf input buffer is limited to 256 characters. This means that it 
+ will stop accepting input after you enter 256 characters. This behaviour is 
+ unlike the normal scanf function that allows you to enter arbitrarily long 
+ strings and scans only the required amount of characters. You can increase the 
+ buffer size by changing the definition SCAN_BUF in grtext.h and recompiling.
+
+</p><p>	
+	Another thing is that scanf can only perform 10 input conversions in 
+ one call i.e. it can process an input string with maximum 10 %. Even this 
+ feature is a pure hack since "C does not provide any way of determining the 
+ number of arguments recieved" by a variadic function like scanf. Basically we 
+ just scan the format string over an arbitrary constant string of 10 integers 
+ to determine the number of arguments and scan the users input at every enter 
+ keypress to see if we've got all we expected. 
+</p><p>	
+	
+	Unfortunately this only fixes the number-of-arguments problem. There is
+ still no way of determining what rubbish the user has entered, which is why the
+ function goes into a loop when characters are entered where numbers are 
+ expected. This was overcome by providing a special clause CTRL-C to quit the 
+ program altogether. Don't blame us, the info-page itself says that there is 
+ no way of recovering from a scanf error. 	
+
+
+	
+</p> 
+
+
+
+</blockquote>       
+<hr width="100%" size="2">
+<table width="100%" summary="Foot table">
+<tr>
+	<td align="left" width="33%" valign="top">
+		<a href="./Developer.html">&lt;&lt;Previous</a></td>
+	<td align="center" width="34%" valign="top">
+		<a href="./index.html">&lt;Home&gt;</a></td>
+	<td align="right" width="33%" valign="top">
+		<a href="./COPYING.html">Next&gt;&gt;</a></td>
+</tr>
+<tr>
+	<td align="left" width="33%" valign="top">Developer Section</td>
+	<td align="center" width="34%" valign="top">
+		<a href="#libgraph_---_Implementing_Turbo_Cs_"> Top</a></td>
+	<td align="right" width="33%" valign="top">
+		COPYING Information</td>
+</tr>
+</table>
+</body>
+</html>

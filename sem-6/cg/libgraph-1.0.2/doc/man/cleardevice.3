@@ -1,0 +1,25 @@
+.TH CLEARDEVICE 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+cleardevice - clears the graphics window
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.B "void cleardevice (void);"
+
+.SS \fRScheme procedure :
+	(\fBcleardevice\fR)
+
+.SH DESCRIPTION
+
+\fBcleardevice()\fR erases the entire graphics screen and moves the current position as given by (\fBgetx\fR(3), \fBgety\fR(3)) to \fI(0,0)\fR. This function is the graphics equivalent of \fBclear\fR or \fBclrscr\fR(3).
+
+(Erasing consists of filling with the current background color.)
+
+.SH RETURN VALUE 
+.br 
+None / \fI#<unspecified>\fR
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3)

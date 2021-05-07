@@ -1,0 +1,28 @@
+.TH RECTANGLE 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+rectangle - draw a rectangle with given corner co-ordinates
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void rectangle (int " left ", int " top ", int " right ", int " bottom ");"
+
+.SS \fRScheme procedure :
+	(\fBrectangle\fR \fIleft top right bottom\fR)
+	
+.SH DESCRIPTION
+
+\fBrectangle()\fR draws a rectangle in the current drawing color.
+
+(\fIleft\fR, \fItop\fR) is the upper left corner of the rectangle
+.br
+(\fIright\fR, \fIbottom\fR) is its lower right corner.
+
+.SH RETURN VALUE 
+.br 
+None / \fI#<unspecified>\fR
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBinitgraph\fR(3),     \fBbar\fR(3)

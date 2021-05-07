@@ -1,0 +1,39 @@
+.TH OUTTEXT 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME 
+outtext, outtextxy - prints a string at current-position(CP)/ specified x-y location
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void outtext (char *" textstring ");"
+.br
+.BI "void outtextxy (int " x ", int " y ", char *" textstring ");"
+.SS \fRScheme procedure :
+	(\fBouttext\fR \fItextstring\fR)
+.br
+	(\fBouttextxy\fR \fIx y textstring\fR)
+
+	
+.SH DESCRIPTION
+
+\fBouttext()\fR and \fBouttextxy()\fR display a text string, using the *current* font-color.
+
+\fBouttext()\fR outputs \fItextstring\fR at the current position (\fICP\fR) and updates this position by the length of the text.
+
+\fBouttextxy()\fR displays \fItextstring\fR in the viewport at the position (\fIx\fR, \fIy\fR) and does not affect \fICP\fR.
+
+If a string is printed with the default font using \fBouttext()\fR or \fBouttextxy()\fR, any part of the string that extends outside the current viewport is automatically wrapped around. If the text scrolls off the page the function waits for a spacebar key before scrolling to the new page.
+
+The scrolling action can be avoided by using \fBtextheight(3)\fR/\fBtextwidth(3)\fR for precise placement of the text string.
+
+\fBouttext()\fR and \fBouttextxy()\fR are for use in graphics mode *only*; they will not work in text mode. For printing in text mode see \fBgraphicstext\fR(3)
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBinitgraph\fR(3),     \fBtextheight\fR(3),
+.br
+\fBtextwidth\fR(3),    \fBgraphicstext(3)

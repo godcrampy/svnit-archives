@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css"
+    />
+    <title>Q2</title>
+  </head>
+
+  <body>
+    <h1>MIS Registration Form</h1>
+    <label>
+      Name
+      <input type="text" placeholder="Enter name" id="name" required />
+    </label>
+    <br />
+    <label>
+      Branch
+      <input type="text" placeholder="Enter branch" id="branch" required />
+    </label>
+    <br />
+    <label>
+      Roll Number
+      <input type="text" placeholder="Enter roll no" id="roll" required />
+    </label>
+    <br />
+    <label>
+      Password
+      <input
+        type="password"
+        placeholder="Enter password"
+        minlength="5"
+        maxlength="10"
+        id="password"
+        required
+      />
+    </label>
+    <label>
+      Retype Password
+      <input
+        type="password"
+        placeholder="Re-type password"
+        minlength="5"
+        maxlength="10"
+        id="re-password"
+        required
+      />
+    </label>
+    <br />
+    <label>
+      Phone Number
+      <input
+        type="text"
+        placeholder="Enter phone number"
+        id="phone"
+        required
+      /><br /><br />
+    </label>
+    <br />
+    <button type="submit" id="submit">Submit Form</button>
+    <script>
+      let btn = document.querySelector("#submit");
+      let err = "";
+
+      btn.addEventListener("click", () => {
+        console.log(btn);
+        let name = document.querySelector("#name").value;
+        let branch = document.querySelector("#branch").value;
+        let roll = document.querySelector("#roll").value;
+        let pass = document.querySelector("#password").value;
+        let rePass = document.querySelector("#re-password").value;
+        let number = document.querySelector("#phone").value;
+
+        if (
+          name === "" ||
+          branch === "" ||
+          roll === "" ||
+          pass === "" ||
+          rePass === "" ||
+          number === ""
+        ) {
+          err += "No field can be empty.\n";
+        }
+
+        if (pass.length >= 5 && pass.length <= 10) {
+          if (pass !== rePass) {
+            err += "Password doesn't match. Re-type it.\n";
+          }
+        } else {
+          err += "Min length of password is 5 & maximum 10.\n";
+        }
+
+        if (number.length !== 10) {
+          err += "Phone number should contain only 10 digits.\n";
+        }
+
+        if (roll.search(/[U]\d{2}[A-Z]{2}\d{3}/i) === -1) {
+          err += "This roll no isn't valid.\n";
+        }
+
+        if (err != "") {
+          alert(err);
+          err = "";
+        } else {
+          alert("Registration successful\n");
+          location.reload();
+        }
+      });
+    </script>
+  </body>
+</html>

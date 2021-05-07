@@ -1,0 +1,83 @@
+.TH SETLINESTYLE 3 "22 FEBRUARY 2005" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+setlinestyle - set line style and width/pattern for line-drawing functions
+.br
+getlinesettings - return current line style and width/pattern for line-drawing functions
+
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "include <graphics.h>"
+.LP
+.BI "void setlinestyle (int " linestyle ", int " upattern ", int " thickness ");"
+.LP
+.BI "void getlinestyle (struct linesettingstype " *dest ");"
+
+.SS \fRScheme function :
+	(\fBsetlinestyle\fR \fIlinestyle\fR \fIupattern\fR \fIthickness\fR))
+.br
+	(\fBgetlinesettings\fR)
+
+	
+.SH DESCRIPTION
+\fBsetlinestyle\fR sets the line-style and pattern/width for all line drawing functions including line, lineto, linerel, rectangle, drawpoly, etc.
+.br
+\fBgetlinesettings\fR fills the linesettingstype structure \fI*lineinfo\fR with information about the current line style, pattern and thickness
+.br
+
+
+.SS Arguments :
+
+.SS \fBsetlinestyle\fR : 
+
+\fIlinestyle\fR is one of 5 pre-defined line-styles in the \fIline_styles\fR enumeration as follows:
+.LP
+.BI constant "        " value "     " meaning "             " eqv. 16 bit-pattern
+.LP
+ SOLID_LINE         0     Solid Line             0xffff
+.LP
+ DOTTED_LINE        1     Dotted Line            0x3333
+.LP
+ CENTER_LINE        2     Centered Line          0x0c3f
+.LP
+ DASHED_LINE        3     Dashed Line            0x1f1f
+.LP
+ USERBIT_LINE       4     User-defined style     \fIupattern\fR
+
+\fIupattern\fR is a 16-bit pattern describing the line-style which is used only when \fIlinestyle\fR is \fBUSERBIT_LINE\fB. 
+.br
+\fIlinewidth\fR gives the thickness of the line in pixels. Any non-positive value is automatically taken as 1. There are 2 pre-defined values in \fIline_widths\fR enumeration as follows:
+.LP
+.BI constant "        " value "     " meaning 
+.LP
+NORM_WIDTH          1     1 pixel wide
+.LP
+THICK_WIDTH         3     3 pixels wide
+
+.br
+.SS \fBgetlinesettings\fR :
+The \fIlinesettingstype\fR structure is defined as follows :
+.SS \fIstruct linesettingstype\fR 
+.br
+{
+.br
+	int \fIlinestyle\fR; /* One of 5 predefined types*/
+.br
+	int \fIupattern\fR;  /* 16 bit-pattern */
+.br
+	int \fIthickness\fR; /* Thickness of line in pixels */
+.br
+};
+
+
+.SH RETURN VALUE 
+\fBsetlinestyle\fR - None / \fI#<unspecified>\fR
+.br
+\fBgetlinesettings\fR  - None in C / list containing (\fIlinestyle\fR \fIupattern\fR \fIthickness\fR) in Scheme.
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),    \fBline\fR(3)
+.br
+\fBlineto\fR(3)       \fBlinerel\fR(3)       \fBrectangle\fR(3), 
+.br
+\fBdrawpoly\fR(3)

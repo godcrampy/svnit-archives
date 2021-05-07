@@ -1,0 +1,37 @@
+.TH SETGRAPHMODE 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+setgraphmode, getgraphmode
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "include <graphics.h>"
+.LP
+.BI "void setgraphmode (int " mode ");"
+.br
+.B int getgraphmode (void);
+
+.SS \fRScheme procedure :
+	(\fBsetgraphmode\fR \fImode\fR)
+.br
+	(\fBgetgraphmode\fR)
+
+.SH DESCRIPTION
+
+\fBgetgraphmode()\fR returns the current graphics mode. Your program must make a successful call to \fBinitgraph(3)\fR or \fBsetgraphmode()\fR BEFORE calling \fBgetgraphmode()\fR.
+
+\fBsetgraphmode()\fR selects a graphics mode different than the default one set by \fBinitgraph(3)\fR. It clears the screen and resets all graphics settings to their defaults. \fImode\fR must be a valid mode for the current device driver.
+
+The enumeration \fIgraphics_modes\fR, defined in \fBgraphics.h\fR, gives names for the predefined graphics modes. For the complete list of available modes see \fBgrconstants\fR(7).
+
+You can use \fBsetgraphmode()\fR in conjunction with \fBrestorecrtmodemode(3)\fR to switch back and forth between text and graphics modes.
+
+.SH RETURN VALUE
+\fBgetgraphmode()\fR returns the graphics mode set by \fBinitgraph(3)\fR or \fBsetgraphmode()\fR.
+.br
+\fBsetgraphmode()\fR does not return.
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),        \fBinitgraph\fR(3),     \fBgrconstants\fR(7),
+.br
+\fBrestorecrtmode\fR(3),  \fBdetectgraph\fR(3)

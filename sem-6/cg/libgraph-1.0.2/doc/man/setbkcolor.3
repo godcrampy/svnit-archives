@@ -1,0 +1,48 @@
+.TH SETBKCOLOR 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+setbkcolor, getbkcolor  -  set/get the current background color
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void setbkcolor (int " color ");"
+.br
+.BI "int getbkcolor (void);"
+
+.SS \fRScheme procedure :
+	(\fBsetbkcolor\fR \fIcolor\fR)
+.br
+	(\fBgetbkcolor\fR)
+	
+.SH DESCRIPTION
+
+\fBgetbkcolor()\fR returns the current background \fIcolor\fR.
+
+\fBsetbkcolor()\fR sets the background to the color specified by \fIcolor\fR.
+
+\fIcolor\fR is either a number or symbolic name specifying the color to set.
+
+.SS Example :
+.br
+.RS 8
+setbkcolor(BLUE);
+.RE 8
+.br
+
+For the complete list of available colors refer to \fBgrconstants\fR(7).
+
+.SS Note : 
+The default background color is \fIBLACK\fR.
+
+.SH RETURN VALUE
+.br
+\fBgetbkcolor()\fR returns the current background color.
+.br
+\fBsetbkcolor()\fR does not return.
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBinitgraph\fR(3),     \fBgrconstants\fR(7),
+.br
+\fBsetcolor\fR(3),     \fBgetcolor\fR(3)

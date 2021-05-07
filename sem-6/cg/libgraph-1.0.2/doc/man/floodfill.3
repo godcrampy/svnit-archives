@@ -1,0 +1,34 @@
+.TH FLOODFILL 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+floodfill - fill within a given color boundary
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void floodfill (int " x ", int " y ", int " boundarycolor ");"
+
+.SS \fRScheme procedure :
+	(\fBfloodfill\fR \fIx y boundarycolor\fR)
+
+.SH DESCRIPTION
+
+\fBfloodfill()\fR fills an enclosed area on bitmap devices.
+
+The area bounded by the \fIboundarycolor\fR border is flooded with the current fill color.
+
+(\fIx\fR, \fIy\fR) is a "seed point".
+If the \fIseed\fR is within an enclosed area, the inside will be filled.
+If the \fIseed\fR is outside the enclosed area, the exterior will be filled.
+
+.SS Note : 
+\fBfillpoly\fR(3) is recommended over \fBfloodfill()\fR whenever possible for perfomance reasons.
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),    \fBfillpoly\fR(3)

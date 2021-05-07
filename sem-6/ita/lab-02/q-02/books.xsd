@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="bookstore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="book" maxOccurs="100">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="lang" use="required" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="author">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="[A-Z].*" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="year">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="1900" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="price" type="xs:float" />
+            </xs:sequence>
+            <xs:attribute default="GENERAL" name="category" type="cat" />
+            <xs:attribute name="id" type="xs:ID" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="cat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COOKING" />
+      <xs:enumeration value="CHILDREN" />
+      <xs:enumeration value="WEB" />
+      <xs:enumeration value="GENERAL" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

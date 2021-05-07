@@ -1,0 +1,40 @@
+.TH TEXTHEIGHT 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+textheight - get height of string in screen pixels of current font
+.br
+textwidth - get width of string in screen pixels of current font
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "int textheight (char *" textstring ");"
+.br
+.BI "int textwidth (char *" textstring ");"
+.SS \fRScheme procedure :
+	(\fBtextheight\fR \fItextstring\fR)
+.br
+	(\fBtextwidth\fR \fItextstring\fR)
+
+	
+.SH DESCRIPTION
+
+\fBtextheight()\fR returns the height in pixels of the \fItextstring\fR according to the size of the font loaded currently.
+
+\fBtextwidth()\fR returns the width in pixels of the given \fItextstring\fR according to the size of the font currently loaded.
+
+These functions are useful for line-spacing and precision placement of text while using functions like \fBouttextxy(3)\fR. Since we are currently using only one font the size returned by \fBtextheight()\fR is fixed while that of \fBtextwidth()\fR is actually calculated for the given string.
+
+.SS NOTE: 
+\fBtextwidth()\fR adds \fI5\fR to the actual value for good measure to prevent overlap or accidental scrolling off the current line.
+
+.SH RETURN VALUE
+\fBtextheight()\fR returns the height in pixels of the given \fItextstring\fR.
+.br
+\fBtextwidth()\fR returns the width in pixels of the given \fItextstring\fR.
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBinitgraph\fR(3),     \fBouttext\fR(3),
+.br
+\fBouttextxy\fR(4),    \fBgraphicstext\fR(3)

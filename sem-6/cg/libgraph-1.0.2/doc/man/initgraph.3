@@ -1,0 +1,49 @@
+.TH INITGRAPH 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+
+.SH NAME
+initgraph, closegraph - start/close the graphics window
+
+.SH SYNOPSIS
+.SS \fRC function :
+.BI "#include  <graphics.h>"
+.LP
+.BI "void initgraph (int *" graphdriver ", int *" graphmode ", char *" pathtodriver ");"
+.br
+.BI "void closegraph (void);"
+.br
+.SS \fRScheme procedure :
+	(\fBinitgraph\fR \fIgraphdriver graphmode\fR [\fIpathtodriver\fR]) 
+.br
+	(\fBclosegraph\fR)
+
+.SH DESCRIPTION
+The function \fBinitgraph()\fR is called to start the graphics mode i.e. open the graphics drawing window. All functions operate within this window. \fBinitgraph\fR *MUST* be called before drawing functions are called.
+
+The arguments \fIgraphdriver\fR and \fIgraphmode\fR are the driver and mode values given in \fBgrconstants(7)\fR section. The last argument \fIpathtodriver\fR is provided only for compatibility with TC and is ignored by \fBinitgraph()\fR. It may be NULL or any random string. It does not make any difference.
+
+\fBclosegraph()\fR is used to shutdown the graphics system and close the graphics window. Once it is called the graphics window will have to be reopened with another call to \fBinitgraph()\fR if needed. \fBclosegraph()\fR is called by default when your program quits but it is better to call it explicitly before main() returns.
+
+.SS Note : 
+For user-specified modes and sizes see \fBgrconstants(7)\fR.
+
+.SS Example:
+.RS 8
+int gd=DETECT, gm=VGAMAX;
+.br
+initgraph(&gd, &gm, 0);
+.br
+.BR ......  "		/*Call to various drawing functions.*/"
+.br
+closegraph();
+.RE 8
+
+.SH RETURN VALUE 
+\fBinitgraph()\fR returns the graphics mode initialized in \fIgraphmode\fR.
+.br
+\fBclosegraph()\fR does not return.
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBdetectgraph\fR(3),      \fBrestorecrtmode\fB(3),
+.br
+\fBgrconstants\fR(7)
+

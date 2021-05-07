@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE bookstore SYSTEM "books.dtd"> -->
+
+<bookstore xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="books.xsd">
+  <book category="COOKING" id="b1">
+    <title lang="en">Everyday Italian</title>
+    <author>Giada</author>
+    <year>2005</year>
+    <price>30.00</price>
+  </book>
+  <book category="CHILDREN" id="b2">
+    <title lang="en">Harry Potter</title>
+    <author>J K. Rowling</author>
+    <year>1900</year>
+    <price>29.99</price>
+  </book>
+  <book category="WEB" id="b3">
+    <title lang="en">Learning XML</title>
+    <author>Erik T. Ray</author>
+    <year>2003</year>
+    <price>39.95</price>
+  </book>
+</bookstore>

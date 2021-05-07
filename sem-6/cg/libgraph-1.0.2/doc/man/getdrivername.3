@@ -1,0 +1,36 @@
+.TH GETDRIVERNAME 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+getdrivername - get name of currently loaded driver
+.br
+getmodename - get name of currently active mode  
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "char *getdrivername (void);"
+.br
+.BI "char *getmodename (int " mode_number ");"
+.SS \fRScheme procedure :
+	(\fBgetdrivername\fR)
+.br
+	(\fBgetmodename\fR \fImode_number\fR)
+	
+
+.SH DESCRIPTION
+
+After a call to \fBinitgraph(3)\fR, \fBgetdrivername()\fR returns the name of the driver that is currently loaded.
+
+\fBgetmodename()\fR accepts a graphics mode number as input and returns a string containing the name of the corresponding graphics mode.
+
+The return values are useful for building menus or displaying status. The space required to store the string is *MALLOCED* and *SHOULD BE FREED* when not required.
+
+For a complete description of available graphics drivers and modes see \fBgrconstants\fR(7)
+
+.SH RETURN VALUE
+\fBgetdrivername()\fR returns a pointer to a string with the name of the currently loaded graphics driver. 
+.br
+\fBgetmodename()\fR returns a pointer to a string contining the name of the graphics mode.
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),     \fBgrconstants\fR(7)

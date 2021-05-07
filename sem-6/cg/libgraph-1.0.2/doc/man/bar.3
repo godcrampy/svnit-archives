@@ -1,0 +1,28 @@
+.TH BAR 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME 
+bar	- draw a 2d graph bar given corner co-ordinates
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void bar (int " left ", int " top ", int " right ", int " bottom ");"
+
+.SS \fRScheme procedure :
+	(\fBbar\fR \fIleft top right bottom\fR)
+
+.SH DESCRIPTION
+
+\fBbar()\fR draws a filled-in, rectangular, two-dimensional bar.
+
+The bar is filled using the current fill color.
+
+(\fIleft\fR, \fItop\fR) is the upper left corner of the bar, and (\fIright\fR, \fIbottom\fR) is it's lower right corner.
+
+.SH RETURN VALUE 
+.br
+None / \fI#<unspecified>\fR
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBrectangle\fR(3),    \fBbar3d\fR(3)

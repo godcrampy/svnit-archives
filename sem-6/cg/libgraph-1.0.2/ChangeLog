@@ -1,0 +1,50 @@
+February 22, 2005	
+	Bug #12082 fixed; in mapword and mapvword functions : one less pixel 
+	was getting plotted - more specifically word+1 pixels should be plotted 
+	- reported by Aishvarya Pedgaonkar.	
+	Changed magic number in pcgen.sh to /bin/sh from /bin/bash.
+
+June 12, 2004
+	VERSION CHANGE - 1.0.1 ==>> 1.0.2
+	Changed CFLAGS to AM_CFLAGS in Makefile.am
+	(endangle-stangle) ==> abs (endangle-stangle) in ellipse ()
+	(endangle-stangle) ==> abs (endangle-stangle) in arc ()
+	Added function genellipse() with documentation
+	Add screen-handling functions in guile-module (guile-libgraph.c)
+	Added with-* macros in libgraph.scm
+
+
+September 8, 2003
+	Corrected the dist. Previous distribution was broken.
+
+
+September 5, 2003
+	VERSION CHANGE - 1.0.0  ==>> 1.0.1
+	Man-pages of all functions
+	Checking for initialization of graphics mode
+		(CHECK_INITIALIZATION macro)
+	Support for pkg-config made optional
+	Corrected optional support for guile-module
+
+	
+August 11, 2003
+	Begin work of making man pages
+
+	
+July 11, 2003
+	libguile-libgraph(Guile loadable module) integrated into libgraph
+
+
+
+June 6, 2003
+	support for pkg-config. Creation of this ChangeLog  
+	VERSION CHANGE -  0.0.1 ==>>  1.0.0
+
+June 5, 2003 
+	Proper installation with Autotools. Checks installed for SDL, guile
+
+June 4, 2003
+	Support for guile -- gr-guile added
+
+June 2002 - June 2003 
+	chaos --- hacked up Makefile. Improper version. No ChangeLog

@@ -1,0 +1,17 @@
+.TH LIBGRAPH 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API
+.SH NAME
+grc  -  script to compile c programs and link with the graphics library
+.SH DESCRIPTION
+
+	grc is a small bash script to compile c-programs and link them with \fBlibgraph\fR(7).
+
+	The script works as follows:
+
+	 $ grc foo
+.br
+		 ==> gcc foo.c -lgraph -o foo
+
+	The effect is important since if you want to pass any other arguments to gcc you have to do it manually. grc can handle only one argument.	 
+
+.SH SEE ALSO
+\fBlibgraph\fR(7)

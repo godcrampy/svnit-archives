@@ -1,0 +1,36 @@
+.TH GETMAXX 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+getmaxx, getmaxy - get maximum (x, y) screen values
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>
+.LP
+.BI "int getmaxx (void);"
+.br
+.BI "int getmaxy (void);"
+
+.SS \fRScheme procedure :
+	(\fBgetmaxx\fR)
+.br
+	(\fBgetmaxy\fR)
+	
+.SH DESCRIPTION
+
+\fBgetmaxx()\fR returns the maximum x value (screen-relative) for the current graphics driver and mode.
+
+\fBgetmaxy()\fR returns the maximum y value (screen-relative) for the current graphics driver and mode.
+
+For example, on \fIVGA800\fR (800x600) mode, \fBgetmaxx()\fR returns \fI799\fR and \fBgetmaxy()\fR returns \fI599\fR.
+
+For a full list of available modes see \fBgrconstants\fR(7)
+
+.SH RETURN VALUE
+.br
+\fBgetmaxx()\fR maximum x screen coordinate.
+.br
+\fBgetmaxy()\fR maximum y screen coordinate.
+
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),    \fBinitgraph\fR(3),     \fBgrconstants\fR(3)

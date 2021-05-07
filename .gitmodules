@@ -1,0 +1,3 @@
+[submodule "sem-6/cg/py-graphics-h"]
+	path = sem-6/cg/py-graphics-h
+	url = https://github.com/godcrampy/py-graphics-h.git

@@ -1,0 +1,7 @@
+<?xml encoding="UTF-8"?>
+<!ELEMENT emails (email*)>
+<!ELEMENT email (to,from,heading,body)>
+<!ELEMENT to (#PCDATA)>
+<!ELEMENT from (#PCDATA)>
+<!ELEMENT heading (#PCDATA)>
+<!ELEMENT body (#PCDATA)>

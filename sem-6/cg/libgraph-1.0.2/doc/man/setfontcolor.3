@@ -1,0 +1,46 @@
+.TH SETFONTCOLOR 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API"
+.SH NAME
+setfontcolor, getfontcolor - set/get the current font color
+
+.SH SYNOPSIS
+.SS \fRC function :
+.B "#include <graphics.h>"
+.LP
+.BI "void setfontcolor (int " color ");"
+.br
+.BI "int getfontcolor(void);"
+
+.SS \fRScheme procedure :
+	(\fBsetfontcolor\fR \fIcolor\fR)
+.br
+	(\fBgetfontcolor\fR)
+
+.SH DESCRIPTION
+
+\fBsetfontcolor()\fR sets the current font color to \fIcolor\fR which can range from \fI0\fR to \fBgetmaxcolor(3)\fR.
+
+\fBgetfontcolor()\fR gets the current font drawing \fIcolor\fR.
+
+To select a font color with \fBsetfontcolor()\fR, you can pass either the \fIcolor number\fR or the equivalent \fIcolor name\fR.
+
+These functions are \fBlibgraph(7)\fR extensions, i.e. they are not available in the original \fIgraphics.h\fR. They affect all text written on the graphics window wether by \fBouttext(3)\fR or by \fBprintf(3)\fR. 
+
+See \fBgraphicstext\fR(3) for details on using \fRprintf\fR(3) and scanf\fR(3).
+
+For the complete list of font-colors refer to \fBgrconstants\fR(7).
+
+.SS Note : 
+The default font-color is \fIWHITE\fR.
+
+.SH RETURN VALUE
+.br
+\fBgetfontcolor()\fR returns the current \fIfont-color\fR.
+.br
+\fBsetfontcolor()\fR does not return.
+
+.SH SEE ALSO
+\fBlibgraph\fR(7),     \fBinitgraph\fR(3),     \fBgrconstants\fR(7),
+.br
+\fBsetbkcolor\fR(3),   \fBgetbkcolor\fR(3),    \fBsetcolor\fR(3),
+.br
+\fBgetcolor\fR(3),     \fBgraphicstext\fR(3)

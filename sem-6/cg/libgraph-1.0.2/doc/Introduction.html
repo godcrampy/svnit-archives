@@ -1,0 +1,248 @@
+<html>
+<head>
+  <title>libgraph Introduction & Usage</title>
+</head>
+<body>
+               
+<center>
+<big><big>
+<a name="libgraph_---_Implementing_Turbo_Cs_">
+	</a>
+	libgraph  ---  Implementing Turbo C's graphics on GNU/Linux 
+</big>
+</big>
+</center>
+<br>
+
+<table width="100%" summary="Head table">
+<tr>
+	<td align="left" width="33%" valign="top">
+		<a href="./index.html">&lt;&lt;Previous</a></td>
+	<td align="center" width="34%" valign="top"></td>
+	<td align="right" width="33%" valign="top">
+		<a href="./Function_List.html">Next&gt;&gt;</a></td>
+</tr>
+<tr>
+	<td align="left" width="33%" valign="top">Home</td>
+	<td align="center" width="34%" valign="top"></td>
+	<td align="right" width="33%" valign="top">
+		List of Functions</td>
+</tr>
+</table>
+
+
+<hr width="100%" size="2">      
+
+
+<p>
+<br>
+<blockquote>         
+<i><big><big>&nbsp;Introduction & Usage</big></big></i>
+</blockquote>         
+<blockquote>                  
+  <div align="left">                  
+  <ul>
+         <li><big><a href="#Introduction">Introduction</a>&nbsp;</big><br></li>
+                   
+  </ul>
+  <ul>
+         <li><big><a href="#Requirements">Requirements</a></big></big><br></li>
+  </ul>
+                   
+  <ul>
+         <li><big><a href="#Usage">Usage</a></big></big><br></li>
+  </ul>
+                   
+  <ul>
+         <li><big><i><a href="#IMPORTANT">IMPORTANT</a></i></big></li>
+  </ul>
+      </div>
+      </blockquote>
+<br>           
+</p>         
+<hr width="100%" size="2"> 
+<p>
+<blockquote>
+<br>
+<i>
+<li><big><a name="Introduction"><a href="#Introduction">	What is it?  </a></a>
+</big>
+</li></i><br>
+<p>
+	It is an implementation of TC graphics.h functions in Linux using SDL --
+ Simple DirectMedia Layer (<i><a href="http://www.sdl.org">www.libsdl.org</a></i> for more).
+</p>
+<p>
+	The sole objective of this package is to enable people to run programs 
+ written using graphics.h functions directly in Linux. It does not aim to be a 
+ complete graphics solution. Effort has been made to suppress flexibility and 
+ genericity in order to provide an interface closer to the original. Basically 
+ this software is provided with the sincere hope that it will prevent you from
+ booting into Windoze.
+</p>
+<p>	 
+	For more power and flexibility use libSDL directly. The website
+<i><a href="http://www.sdl.org">(libsdl.org)</a></i> contains a number of links to great useful, generic and powerful 
+support libraries for SDL.
+</p>	
+
+</blockquote>
+
+<hr width="100%" size="2"> 
+<blockquote>
+<p>
+<li><a name="Requirements"><a href="#Requirements"><i><big> What do I need?  </big></a></a>
+</li></i><br>
+</p>
+<p>	
+	You need to have the following installed :<br> 
+	<p>
+	<blockquote>
+		SDL-x.x.x.rpm 		   		-- the main SDL library<br>
+		SDL-devel-x.x.x.rpm 		-- the developer package<br>
+		SDL_image-x.x.x.rpm 		-- image library for fonts<br>
+		SDL_image-devel-x.x.x.rpm 	-- image library developer package<br>
+	</blockquote>
+	</p>
+</p>
+<p>
+	These libaries are a standard part of most current distributions 
+ (which is why we chose SDL over SVGAlib in the first place). The libaries will
+ probably already be installed. You may have to install the developer packages. 
+</p>
+<p>	
+	SDL can render onto X or a framebuffered console(fbdev). The VGA mode console
+can be used directly through SVGAlib but we haven't tried it (on the TODO list).
+</p>
+</blockquote>
+<hr width="100%" size="2"> 
+<blockquote>
+<p>	
+	
+<li><a name="Usage"><a href="#Usage"><i><big> How to use?  </big></i></a></a>
+</li></i><br>
+</p>
+<p>
+	Assuming that you have the above packages installed, just cd to the 
+ graphics directory and type : 
+</p>
+<p>
+<blockquote>
+	make      		/*To compile*/<br>
+	make install  		/* To install */	<br>
+	...and you are ready to go.<br>
+</blockquote>
+</p>
+<p>		
+		
+	You may want to use :<br> 
+<blockquote>
+	make uninstall	/* To purge your system of the previous installation */<br>	
+	make clean	/* To remove the old objects before a recompile */<br>
+</blockquote>
+</p>
+<p>	
+	The headers are installed in /usr/include.<br> Libraries go to /usr/lib.<br>
+ Fonts and documentation are in /usr/share/libgraph.<br>
+</p>
+<p>	
+
+	 Just include graphics.h in your C file ( as you normally would do).
+ While compiling your applications you must link with libgraph as in :  
+</p>
+<p>	
+	
+<blockquote><pre>
+	$ gcc  foo.c  -lgraph  -o  foo
+</pre></blockquote>
+</p>
+<p>	
+	
+	If your fingers give you too much trouble then we have provided a 
+ simple script "grc" to the same effect.
+</p>
+<p>	
+	
+<blockquote>
+	$grc foo
+</blockquote>
+</p>
+<p>	
+	
+	As of now you must manually copy this script into a directory in your path. 
+</p>
+<p>	
+	
+	You can now run your executable.
+</p>
+</blockquote>
+<hr width="100%" size="2"> 
+<blockquote>
+<p>	
+	
+<li><a name="IMPORTANT"><a href="#IMPORTANT"><i><big> IMPORTANT </big></i></a></a>
+</li></i><br>
+	
+
+</p>
+<p>	
+	If your program goes into an infinite loop press CTRL-C. The program will 
+ quit in anywhere between 10 to 30 seconds(depending on CPU load).	
+ If the program doesn't exit you may have to restart the X-server
+ (just CTRL-BACKSPACE-ALT). We have not yet seen a complete lock-up
+ requiring a reboot.
+</p>
+<p>	
+	
+	If this makes you uncomfortable (too slow or too sophisticated
+ for your taste), remove the SDL_FULLSCREEN flag from the _initflag definition 
+ in graphics.h and recompile,reinstall. Now libgraph will run  in windowed mode 
+ and you can xkill it in case of a lock-up. 
+	
+</p>
+<p>	
+	There exists a loop-hole in scanf. If you enter invalid input,
+ specifically text where numbers are expected, the function goes into a loop 
+ (the program would have seg-faulted or mal-functioned anyway).Here you can 
+ easily use CTRL-C to exit --- this feature is guaranteed to work. 
+	    
+</p>
+<p>	
+	
+	
+	If you just want to use the library you have learnt all ye need to 
+ know. We have provided documentation of standard TC functions(see 
+ <a href="./Function_List.html">Function List)</a>. For a closer look at the 
+ functions/constants provided, just glance through the header files. 
+	
+</p>
+<p>	
+	Any problems/destructive criticism/flames may be sent on:<br> 
+		<div align="center">&lt;faraz_ms@rediffmail.com&gt;	</div>
+</p>
+	
+</big>    
+</p>           
+
+</blockquote>
+
+<hr width="100%" size="2">      
+<table width="100%" summary="Foot table">
+<tr>
+	<td align="left" width="33%" valign="top">
+		<a href="./index.html">&lt;&lt;Previous</a></td>
+	<td align="center" width="34%" valign="top">
+		<a href="./index.html">&lt;Home&gt;</a></td>
+	<td align="right" width="33%" valign="top">
+		<a href="./Function_List.html">Next&gt;&gt;</a></td>
+</tr>
+<tr>
+	<td align="left" width="33%" valign="top">Home</td>
+	<td align="center" width="34%" valign="top">
+		<a href="#libgraph_---_Implementing_Turbo_Cs_"> Top</a></td>
+	<td align="right" width="33%" valign="top">
+		List of Functions</td>
+</tr>
+</table>
+</body>
+</html>

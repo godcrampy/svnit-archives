@@ -1,0 +1,4 @@
+#define SINGLE_LINE_COMMENT 1
+#define MULTI_LINE_COMMENT 2
+#define NOT_COMMENT 3
+#define CR 4

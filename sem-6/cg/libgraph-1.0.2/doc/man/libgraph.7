@@ -1,0 +1,101 @@
+.TH LIBGRAPH 3 "11 AUGUST 2003" libgraph-1.x.x "SDL-libgraph API
+.SH NAME
+libgraph - library providing the TurboC graphics API (a.k.a graphics.h) in  Linux using SDL
+
+.SH DESCRIPTION
+
+.LP
+.SS #  What is it?
+
+It is an implementation of TC \fIgraphics.h\fR functions in Linux using SDL -- Simple DirectMedia Layer (\fIwww.libsdl.org\fR for more).
+
+The sole objective of this package is to enable people to run programs written using graphics.h functions directly in Linux. It does not aim to be a complete graphics solution. Effort has been made to suppress flexibility and genericity in order to provide an interface closer to the original. Basically this software is provided with the sincere hope that it will prevent you from booting into Windoze.
+
+For more power and flexibility use libSDL directly. The website (\fIlibsdl.org\fR) contains a number of links to great useful, generic and powerful support libraries for SDL.
+
+.SS # What do I need?
+
+You need to have atleast the following installed :
+
+	SDL-1.2.x.rpm  -- the main SDL library
+.br
+	SDL-devel-x.x.x.rpm -- the developer package
+.br
+	SDL_image-x.x.x.rpm -- image library for fonts
+.br
+	SDL_image-devel-x.x.x.rpm -- image library developer package
+.br
+	guile-1.4.x -- for the loadable guile modules(optional)
+
+These libaries are a standard part of most current distributions (which is why we chose SDL over SVGAlib in the first place). The libaries will probably already be installed. You may have to install the developer packages.
+
+SDL can render onto X or a framebuffered console(fbdev). The VGA mode console can be used directly through SVGAlib but we haven't tried it (on the TODO list).
+
+.SS # How to use?
+
+Assuming that you have installed libgraph(see INSTALL in source-directory):
+
+Just include \fIgraphics.h\fR in your C file ( as you normally would do). 
+.LP
+While compiling your applications you must link with libgraph as in :
+
+	$ gcc  foo.c  -lgraph  -o  foo
+
+If your fingers give you too much trouble then we have provided a simple script "grc" to the same effect.
+
+	$ grc foo
+
+You can now run your executable.
+
+.SS # IMPORTANT
+
+If your program goes into an infinite loop press \fICTRL-C\fR. The program will quit in anywhere between 10 to 30 seconds(depending on CPU load). If the program doesn't exit you may have to restart the X-server (just \fICTRL-BACKSPACE-ALT\fR). We have not yet seen a complete lock-up requiring a reboot.
+
+If this makes you uncomfortable (too slow or too sophisticated for your taste), you can xkill the graphics window in case of a lock-up - X responds with a nasty error.
+
+There exists a loop-hole in scanf. If you enter invalid input, specifically text where numbers are expected, the function goes into a loop (the program would have seg-faulted or mal-functioned anyway).Here you can easily use CTRL-C to exit --- this feature is guaranteed to work.
+
+.SH REPORTING BUGS
+Any problems/destructive-criticism/flames may be sent on:
+<\fIfaraz_ms@rediffmail.com\fR>
+
+
+.SH SEE ALSO
+
+	\fBgrconstants\fR(7),     \fBgrc\fR(1),          \fBarc\fR(3), 
+.br
+	\fBbar\fR(3),             \fBbar3d\fR(3),        \fBcircle\fR(3), 
+.br
+	\fBcleardevice\fR(3),     \fBclosegraph\fR(3),   \fBdelay\fR(3),
+.br
+	\fBdetectgraph\fR(3),     \fBdrawpoly\fR(3),     \fBellipse\fR(3),
+.br
+	\fBfillellipse\fR(3),     \fBfillpoly\fR(3),     \fBfloodfill\fR(3),
+.br
+	\fBgetarccoords\fR(3),    \fBgetbkcolor\fR(3),   \fBgetch\fR(3),
+.br
+	\fBgetche\fR(3),          \fBgetcolor\fR(3),     \fBgetdrivername\fR(3),
+.br
+	\fBgetfontcolor\fR(3),    \fBgetgraphmode\fR(3), \fBgetmaxcolor\fR(3),
+.br
+	\fBgetmaxmode\fR(3),      \fBgetmaxx\fR(3),      \fBgetmaxy\fR(3),
+.br
+	\fBgetmodename\fR(3),     \fBgetmoderange\fR(3), \fBgetpixel\fR(3),
+.br
+	\fBgetx\fR(3),            \fBgety\fR(3),         \fBinitgraph\fR(3),
+.br
+	\fBkbhit\fR(3),           \fBlibgraph\fR(7),     \fBline\fR(3),
+.br
+	\fBlinerel\fR(3),         \fBlineto\fR(3),       \fBmoverel\fR(3),
+.br
+	\fBmoveto\fR(3),          \fBouttext\fR(3),      \fBouttextxy\fR(3),
+.br
+	\fBpieslice\fR(3),        \fBputpixel\fR(3),     \fBrectangle\fR(3),
+.br
+	\fBrestorecrtmode\fR(3),  \fBsector\fR(3),       \fBsetbkcolor\fR(3),
+.br
+	\fBsetcolor\fR(3),        \fBsetfontcolor\fR(3), \fBsetgraphmode\fR(3),
+.br
+	\fBtextheight\fR(3),      \fBtextwidth\fR(3),    \fBgraphicstext\fR(3),		
+.br	
+	\fBgenellipse\fR(3),	     \fBsetlinestyle\fR(3), \fBgetlinesettings\fR(3)
