@@ -1,0 +1,623 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="distribution" content="Global">
+<meta name="author" content="Gerard Holzmann">
+<meta name="robots" content="all,index,follow">
+<meta name="rating" content="general">
+<meta name="language" content="en-us">
+<meta name="category" content="Verification,Validation,Software,Safety Software,Model Checking,Testing,Concurrency,Software Analysis,Static Analysis,compilers,operating systems,programming languages,books">
+<meta name="description" content="Spin is a general tool for verifying the correctness of distributed software (software design) in a rigorous and mostly automated fashion.">
+<meta name="keywords" content="software verification, model checking, distributed systems, linear temporal logic, LTL, concurrency, coordination, reactive systems, proof, on-the-fly, supertrace, bitstate, multi-threaded systems, protocols, protocol verification, reliable software, trustworthy computing, software quality, formal methods, ACM System Software award">
+<link rel="icon" type="image/ico" href="favicon.ico" />
+<TITLE>Spin - Formal Verification</TITLE>
+</HEAD>
+
+<body background="#ffffff">
+
+<h1><tt><font color="#FF0000">ON-THE-FLY, LTL MODEL CHECKING with SPIN
+</font></tt></h1>
+
+<table>
+<tr>
+<td width=120>
+<img src="Gif/acm_logo2.gif" alt="[acm_logo]" align=left>
+</td>
+<td>
+Spin is a popular open-source software tool, used by thousands of people
+worldwide, that can be used for the formal verification of
+distributed software systems.
+The tool was developed at <a href="http://www.bell-labs.com">
+Bell Labs</a> in the original Unix group of the Computing
+Sciences Research Center, starting in 1980.
+The software has been available freely since 1991, and
+continues to evolve to keep pace with new developments in
+the field.
+In April 2002 the tool was awarded the prestigious
+<a href="http://awards.acm.org/software_system">
+System Software Award</a> for 2001 by the ACM.
+</td>
+</tr>
+</table>
+
+
+<table width=100%>
+<tr>
+<td align="left">
+<h3><tt>Quick Links</tt></h3>
+<ul>
+<li><a href="sitemap.html"><tt>Site Map</tt></a></li>
+<li><a href="http://spinroot.com/forum"><tt>Spin Forum (questions, bug reports, announcements)</tt></a> (<font color=red>new</font>)</li>
+<li><a NAME=1 href="#D"><tt>Annual Workshop - Spin2011</a></tt></li>
+<li><a href="Man/README.html"><tt>Download and install Spin</tt></a></li>
+</ul>
+<ul>
+<li><a NAME=1 href="#A"><tt>General Tool Description</tt></a></li>
+<li><a NAME=1 href="#X"><tt>Inspiring Applications</tt></a></li>
+<li><a NAME=1 href="#B"><tt>Tool Documentation and Theoretical Background</tt></a></li>
+<li><a NAME=1 href="#E"><tt>Performance</tt></a></li>
+<li><a NAME=1 href="#F"><tt>Language Extensions</tt></a></li>
+<li><a NAME=1 href="#G"><tt>Eclipse Plugin</tt></a></li>
+<li><a NAME=1 href="#Y"><tt>Buchi Store</tt></a></li>
+<li><a NAME=1 href="#H"><tt>Emacs Mode</tt></a></li>
+<li><a NAME=1 href="#C"><tt>Support</tt></a></li>
+<li><a NAME=1 href="#Z"><tt>Sample Spin Related Projects (new)</tt></a></li>
+</ul>
+</td>
+<td align="center">
+<p>
+<iframe src="http://rcm.amazon.com/e/cm?t=spinroot-20&o=1&p=21&l=ur1&category=kindle&banner=1SXH1NWCPDHK3NRJC7R2&f=ifr" width="125" height="125" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe><p>
+<p>
+</td>
+<td align="right">
+
+</td>
+</tr>
+</table>
+
+<h4><tt>Site and Web Search:</tt></h4>
+<!-- SiteSearch Google -->
+<ul>
+<form action="http://www.google.com/cse" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-7023094224251763:4jbdo3-7zkt" />
+    <input type="hidden" name="ie" value="ISO-8859-1" />
+    <input type="text" name="q" size="31" />
+    <input type="submit" name="sa" value="Search" />
+  </div>
+</form>
+<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+</ul>
+<!-- SiteSearch Google -->
+
+<hr>
+
+<table align=center>
+<tr>
+<td><a href="http://www.amazon.com/exec/obidos/ASIN/0321228626/spinroot-20/102-4639573-4853760?creative=125577&camp=2321&link_code=as1"><img src="spinbook.jpg"></a></td>
+<td><a href="http://www.amazon.com/gp/redirect.html?ie=UTF8&location=http%3A%2F%2Fwww.amazon.com%2FPrinciples-Model-Checker-Mordechai-Ben-Ari%2Fdp%2F1846287693%3Fie%3DUTF8%26s%3Dbooks%26qid%3D1199150125%26sr%3D8-1&tag=spinroot-20&linkCode=ur2&camp=1789&creative=9325"><img src="ben_ari.jpg"></a></td>
+<td><a href="http://direct.ips.co.jp/book/Template/Goods/go_BookstempKindai.cfm?GM_ID=KD0353&CM_ID=004300307&SPM_ID=1115&HN_NO=00430&PM_No=&PM_Class=">
+<img src="nakajima.jpg"></a></td>
+<td><a href="http://ssl.ohmsha.co.jp/cgi-bin/menu.cgi?ISBN=978-4-274-20844-7"><img src="BenAri_Japanese.jpg"></a></td>
+</table>
+<table align=center>
+<td><a href="http://www.amazon.com/exec/obidos/ASIN/0262032708/spinroot-20"><img src="clarke.jpg"></a></td>
+<td><a href="http://www.amazon.com/gp/product/026202649X?ie=UTF8&tag=spinroot-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=026202649X"><img src="baier.jpg"></a></td>
+<td><a href="http://www.amazon.com/exec/obidos/ASIN/3540002960/spinroot-20"><img src="schneider.gif"></td>
+<td><a href="http://www.amazon.com/exec/obidos/ASIN/0321228626/spinroot-20/"><img src="kleuker.jpg"></td>
+</tr>
+</table>
+
+<h2><tt>The Spin Book</tt></h2>
+<ul>
+The new book, documenting the theoretical foundation
+of Spin, its search algorithms, verification options, and
+with a complete language reference manual for the latest version
+of Spin, is available from all online book-sellers, e.g.
+at <a href="http://www.amazon.com/exec/obidos/ASIN/0321228626/spinroot-20/102-4639573-4853760?creative=125577&camp=2321&link_code=as1">
+amazon.com</a>
+<br>
+For a book description, see: <a href="Doc/Book_extras/index.html">
+http://spinroot/spin/Doc/Book_extras/index.html</a>.
+</ul>
+</ul>
+<h2><tt>Other References</tt></h2>
+<ul>
+Some other recommended books on logic model checking, etc:
+<ul>
+<li>
+<a href="http://www.amazon.com/gp/redirect.html?ie=UTF8&location=http%3A%2F%2Fwww.amazon.com%2FPrinciples-Model-Checker-Mordechai-Ben-Ari%2Fdp%2F1846287693%3Fie%3DUTF8%26s%3Dbooks%26qid%3D1199150125%26sr%3D8-1&tag=spinroot-20&linkCode=ur2&camp=1789&creative=9325">Principles of Spin</a><img src="http://www.assoc-amazon.com/e/ir?t=spinroot-20&amp;l=ur2&amp;o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />,
+M. Ben-Ari, Springer Verlag, 2008.
+<li>
+<a href="http://ssl.ohmsha.co.jp/cgi-bin/menu.cgi?ISBN=978-4-274-20844-7">Principles of Spin</a> (Japanese translation), M. Ben-Ari, translated by Shin Nakajima, 2010.
+<li>
+<a href="http://www.amazon.com/exec/obidos/ASIN/032131283X/spinroot-20">Principles of concurrent and Distributed Programming</a>
+(the <font color=red>2nd Edition</font>, which is based on Spin), Ben-Ari, Addison-Wesley, 2006.
+<li>
+<a href="http://direct.ips.co.jp/book/Template/Goods/go_BookstempKindai.cfm?GM_ID=KD0353&CM_ID=004300307&SPM_ID=1115&HN_NO=00430&PM_No=&PM_Class=">
+Model Checking with Spin</a> (in Japanese), by Shin Nakajima, Publ. Kindai Kaguda Sha Co., Ltd., Tokyo, April 2008, 238 pgs.
+<li>
+<a href="http://www.amazon.com/exec/obidos/ASIN/0262032708/spinroot-20">Model Checking</a>, Clarke, Grumberg, and Peled, MIT Press, 2000.
+<li>
+<a href="http://www.amazon.com/gp/product/026202649X?ie=UTF8&tag=spinroot-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=026202649X">Principles of Model Checking</a>, C. Baier, JP Katoen, K. Larsen, MIT Press, May 2008.
+<li>
+<a href="http://www.amazon.com/exec/obidos/ASIN/3540415238/spinroot-20">Systems and Software Verification: Model-Checking Techniques and Tools</a>,
+Berard et al, Springer Verlag, 2001.
+<li>
+<a href="http://www.amazon.com/exec/obidos/ASIN/0521656028/spinroot-20">Logic in Computer Science: Modelling and Reasoning about Systems</a>,
+Huth and Ryan, Cambridge Univ. Press, 1999.
+<li>
+<a href="http://www.amazon.com/exec/obidos/ASIN/0201441241/spinroot-20">Introduction to Automata Theory, Languages, and Computation (2nd Edition)</a>,
+Hopcroft, Motwani, Ullman, Addison-Wesley, 2000.
+<li>
+<a href="http://www.amazon.com/exec/obidos/ASIN/3540002960/spinroot-20">
+Verification of reactive systems</a>, Klaus Schneider, Springer-Verlag 2004.
+<li>
+<a href="http://www.edvsz.fh-osnabrueck.de/kleuker/fmse/index.html">Formale Modelle der Softwareentwicklung</a>, by Stephan Kleuker, new 2009 (in German) Covering Spin, Uppaal, and Petri Nets.
+</ul>
+<p>Some recommended books on general programming techniques:
+<ul>
+<li>
+<a href="http://www.amazon.com/exec/obidos/ASIN/1556155514/spinroot-20">Writing Solid Code</a>,
+Steve Maguire, Microsoft, 1993.
+<li>
+<a href="http://www.amazon.com/exec/obidos/ASIN/1556154844/spinroot-20">Code Complete</a>,
+Steve McConnell, Microsoft, 1993.
+<li>
+<a href="http://www.amazon.com/exec/obidos/ASIN/020161586X/spinroot-20">The Practice of Programming</a>,
+Kernighan & Pike, Addison-Wesley, 1999.
+<li>
+<a href="http://www.amazon.com/exec/obidos/ASIN/0131103628/spinroot-20">C Programming Language (2nd Edition)</a>,
+Kernighan & Ritchie, Prentice Hall, 1988.
+<li>
+<a href="http://www.amazon.com/gp/product/0596510047?ie=UTF8&tag=spinroot-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596510047">Beautiful Code: Leading Programmers Explain How They Think (Theory in Practice (O'Reilly))</a><img src="http://www.assoc-amazon.com/e/ir?t=spinroot-20&l=as2&o=1&a=0596510047" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+</ul>
+<p>Recommended rules for safety critical coding:
+<ul>
+<li><a href="http://spinroot.com/p10">The Power of Ten: rules for writing safety critical code</a>.
+<li><a href="http://spinroot.com/static/">Related: An overview of static source code analyzers</a>
+</ul>
+</ul>
+<h2><tt>Courses at Caltech</tt></h2>
+<ul>
+<li>Some online lecture material:
+<ul>
+<li><a href="http://spinroot.com/spin/Doc/course/">CS118</a> Logic Model Checking (winter 2011)
+<li><a href="http://spinroot.com/CS119">CS119a</a> Reliable Software: <b>Testing</b> and Monitoring (2008)
+<li><a href="http://www.runtime-verification.org/course">CS119b</a> Reliable Software: Testing and <b>Monitoring</b> (2008)
+<li><a href="http://www.rjoshi.org/cs116/">CS116</a> Software Analysis (fall 2010)
+</ul>
+</ul>
+
+<p>
+<p>
+<h2><tt><a NAME="X">Some Inspiring Applications of Spin</a></tt></h2>
+<table width=100%>
+<tr align=top>
+<td width=40></td>
+<td align=top>
+<a href="http://spinroot.com/spin/Workshops/ws96/Ka.pdf">
+<strong><tt>Flood Control</tt></strong></a>
+Three examples of inspiring applications of Spin in the last few years include
+the verification of the control algorithms for the new flood control
+barrier built in the late nineties near Rotterdam in the Netherlands.
+The verification work was carried out by the Dutch firm CMG 
+(Computer Management Group) in collaboration with the Formal Methods
+group at the University of Twente.
+</td>
+<td width=220 align=center>
+<img width=160 align=center src="barrier.jpg" alt="storm barrier" align=left>
+</td>
+</tr>
+<tr>
+<td width=40></td>
+<td>
+<a href="http://spinroot.com/gerard/pdf/bltj2000.pdf">
+<strong><tt>Call Processing</tt></strong></a>
+Logic verification of the call processing software for a commercial data
+and phone switch, the PathStar switch that was designed and built at
+Lucent Technologies. The application was based on model
+extraction from the full and unmodified ANSI-C code of the implementation,
+which was checked for compliance with a group of roughly 20 class-5 features
+formalized in linear temporal logic (e.g., call waiting, conference calling, etc.).
+A cluster of 16 CPUs was used to perform the verifications overnight, every day
+for a period of several months before the switch was marketed.
+Perhaps the largest application of software model checking to date. 
+</td>
+<td width=220 align=center>
+<img width=90 align=center src="pathstar.gif" alt="Pathstar Switch" align=left>
+</td>
+</tr>
+<tr>
+<td width=40></td>
+<td>
+<a href="http://eis.jpl.nasa.gov/lars/">
+<strong><tt>Mission Critical Software</tt></strong></a>
+Selected algorithms for a number of space missions were verified with
+the Spin model checker. The missions include Deep Space 1, Cassini,
+the Mars Exploration Rovers, Deep Impact, etc.
+For Cassini, we verified the correct working of the handoff algorithms
+for the dual control CPUs (<a href="http://spinroot.com/gerard/pdf/nasa98.pdf">pdf</a>).
+For Deep Space 1, researchers at Ames Research Center verified some
+key algorithms and reported their findings in a technical report
+(<a href="Doc/rax.pdf">pdf1</a> which appeared in
+<i>IEEE Transactions on Software Engineering</i>, Volume 27, Number 8, August 2001,
+and the post-mortem analysis in <a href="Doc/remote-agent-ieee.pdf">pdf2</a>
+which appeared at the <i>Fifth NASA Langley Formal Methods Workshop</i>, Virginia, June 2000).
+Later, at JPL a separate verification of the software used on this mission
+was also done (<a href="http://spinroot.com/gerard/pdf/gluck_holz.pdf">pdf</a>).
+For the Mars Exploration Rovers we verified the correct working of
+the resource arbiter that manages the use of all motors on the rovers
+(<a href="http://spinroot.com/gerard/pdf/spin04.pdf">pdf</a>).
+More recently, for Deep Impact we verified aspects of the flash file system module
+that had shown problems before the encounter with the comet took place.
+The picture to the right shows the Cassini spacecraft. A rapidly expanding
+domain of application.
+</td>
+<td width=220 align=center>
+<img width=180 align = center src="cassini.jpg" alt="Cassini Spacecraft" align=left>
+</td>
+</tr>
+</table>
+
+<h2><tt><a NAME="A">General Description</a></tt></h2>
+
+<p>
+Some of the features that set Spin apart from
+related verification systems are:
+<ul>
+<li>
+   Spin targets efficient <b>software</b> verification, not
+   hardware verification. The tool supports a high level language
+   to specify systems descriptions, called <tt>PROMELA</tt>
+   (a <tt>PRO</tt>cess <tt>ME</tt>ta <tt>LA</tt>nguage).
+   Spin has been used to trace logical design errors in
+   distributed systems design, such as operating systems,
+   data communications protocols, switching systems,
+   concurrent algorithms, railway signaling protocols, etc.
+   The tool checks the logical consistency of a specification.
+   It reports on deadlocks, unspecified receptions, flags
+   incompleteness, race conditions, and unwarranted 
+   assumptions about the relative speeds of processes.
+<li>
+   Spin (starting with version 4) provides direct support for
+   the use of <b>embedded C code</b> as part of model specifications.
+   This makes it possible to directly verify implementation
+   level software specifications, using Spin as a driver and
+   as a logic engine to verify high level temporal properties.
+<li>
+   Spin (starting with version 5) provides direct support for
+   the use of <b>multi-core computers</b> for model checking
+   runs -- supporting both safety and liveness verifications.
+<li>
+   Spin works <b>on-the-fly</b>, which means that it
+   avoids the need to preconstruct a global state graph, or
+   Kripke structure, as a prerequisite for the verification of
+   system properties.
+<li>
+   Spin can be used as a full <b>LTL model checking</b> system, supporting all
+   correctness requirements expressible in linear time temporal logic,
+   but it can also be used as an efficient on-the-fly verifier for more
+   basic safety and liveness properties.  Many of the latter properties
+   can be expressed, and verified, without the use of LTL.
+<br>
+   Correctness properties can be specified as system
+   or process invariants (using assertions), as
+   linear temporal logic requirements (LTL), as formal
+   <b>B&uuml;chi Automata</b>, or more broadly as general
+   omega-regular properties in the syntax of <b>never</b> claims.
+<li>
+   The tool supports dynamically <b>growing and shrinking numbers of
+   processes</b>, using a rubber state vector technique.
+<li>
+   The tool supports both <b>rendezvous</b> and <b>buffered
+   message passing</b>, and communication through <b>shared memory</b>.
+   Mixed systems, using both synchronous and asynchronous communications,
+   are also supported.  Message channel identifiers for both rendezvous
+   and buffered channels, can be passed from
+   one process to another in messages.
+<li>
+   The tool supports random, interactive and guided
+   simulation, and both exhaustive and partial proof techniques,
+   based on either <b>depth-first</b> or <b>breadth-first</b> search.
+   The tool is specifically designed to scale well, and to
+   handle even <b>very large problem sizes</b> efficiently.
+<li>
+   To optimize the verification runs, the tool exploits efficient
+   partial order reduction techniques, and (optionally) BDD-like
+   storage techniques.
+</ul>
+To verify a design, a formal model is built using
+PROMELA, Spin's input language.
+PROMELA is a non-deterministic
+language, loosely based on Dijkstra's guarded command
+language notation and borrowing the notation
+for I/O operations from Hoare's CSP language.
+<p>
+Spin can be used in four main modes:
+<ol>
+<li>
+as a <b>simulator</b>, allowing for rapid prototyping
+with a random, guided, or interactive simulations
+</li>
+<li>
+as an <b>exhaustive verifier</b>,
+capable of rigorously proving the validity of
+user specified correctness requirements
+(using partial order reduction theory
+to optimize the search)
+</li>
+<li>
+as <b>proof approximation system</b> that can
+validate even very large system models
+with maximal coverage of the state space.
+</li>
+<li>
+as a driver for
+<a href="http://spinroot.com/swarm"><b>swarm verification</b></a>
+(a new form of swarm computing), which can make optimal
+use of large numbers of available compute cores
+to leverage parallelism and search diversification techniques,
+which increases the chance of locating defects in very
+large verification models.
+</li>
+</ol>
+<p>
+All Spin software is written in ANSI standard C,
+and is portable across all versions of Unix, Linux, cygwin, Plan9,
+Inferno, Solaris, Mac, and Windows.
+
+
+<p align="center">
+<img src="Gif/spinlogo2_small.gif" alt="[spin logo]" align="center">
+
+<p>
+<h2><tt><a NAME="B">Tool Documentation</a></tt></h2>
+
+Documentation for Spin consists of
+published papers and books, documentation distributed with
+the Spin sources, online manual pages,
+and the Spin Workshop proceedings.
+The following list points to the online documentation.
+<ul>
+
+<li><A href="Man/README.html">
+README.html</a> with the downloading and installation notes for Spin.
+<br>Or follow the direct links to the latest Spin
+<a href="Bin/index.html">Binaries</a> or
+<a href="Src/index.html">Sources</a>.
+<p>
+
+<li>
+<a href="Man/index.html">
+ONLINE REFERENCES</a>, including a semantics definition for the
+specification language Promela, and manual pages
+explaining the run-time options for Spin and for the
+verifiers generated by Spin.
+You can optionally also download a local copy of the manpages from the archives, e.g.,
+<a href="Doc/pc_man.zip">pc_man.zip</a>, or
+<a href="Doc/html.tar.gz">html.tar.gz</a>,
+but be warned that these get outdated, while the online references
+are more likely to be up to date.
+<p>
+If you have installed both Spin and Xspin, and
+want to learn how to use Xspin, then read
+<tt>
+	<a href="Man/GettingStarted.html">GettingStarted</a>
+</tt>
+If you want to learn how to use Spin directly from the command-line, then read
+<tt>
+	<a href="Man/Roadmap.html">Roadmap</a> and <a href="Man/Exercises.html">Exercises</a>
+</tt>
+For more detailed information, read also
+<tt>
+	<a href="Man/Manual.html">Manual</a> and then <a href="Man/WhatsNew.html">WhatsNew.html</a>
+</tt>
+<br>
+	A <a href="http://www.asahi-net.or.jp/~hs7m-kwgc/spin/Man/Manual_japanese.html">Japanese translation</a> of the Manual is also available.
+<p>
+
+<li><a href="theory.html">Theoretical Background</a>
+A good number of papers and books have been written about the algorithms and the
+automata theoretic framework that Spin is based on.
+You can find a list of the most important papers at this link.
+<p>
+
+<li>
+   Modifications, updates, extensions, fixes of the Spin sources
+   are documented in the files V[1234].Updates, which are part of
+   the main Spin distribution archive. (And you can also find them
+   on the <a href="Bin/index.html">Binary</a> and
+   <a href="Src/index.html">Source</a> distribution pages.) The file
+   Doc/V5.Updates, for instance, gives the update history for the
+   most recent version of Spin.
+<br>
+Included in the Doc directory of the Source distribution are also
+files with errata to the first edition of the book,
+answers to selected exercises, and all examples from that book.
+More Promela examples can be found in the Test
+directory from the distribution archive, and in the papers on Spin.
+
+<p>
+<li>
+A short description of Spin's <a href="Doc/roots.html">Roots.</a>
+
+<p>
+<li>
+A <a href="http://www.albertolluch.com/research/promelamodels">database of Spin models</a>
+maintained by Alberto Lafuente.
+<p>
+
+</ul>
+
+<h2><tt><a name="E">Tool Performance</a></tt></h2>
+<p>
+<ul>
+Recently our colleagues at Brno have assembled a valuable
+<a href="http://anna.fi.muni.cz/models/">database</a>
+of verification models, with a wealth of information.
+Included in the database are models in DVE format with some performance
+data, and available are also mechanically generated versions in Promela
+of the same models.
+We have added performance numbers for Spin for all models in this database
+that have a Promela version (about 232 models or model variants).
+The results are tabulated on this <a href="http://spinroot.com/spin/beem.html">summary page.</a>
+<br>
+(Most of the performance data tabulated on this page is machine generated from scripts.
+Please send a note if you spot any inaccuracies.)
+</ul>
+
+<h2><tt><a name="F">Language Extensions</a> <font color=red>(new)</font></tt></h2>
+<p>
+<ul>
+The Minnesota Extensible Language Tools group (MELT), and specifically
+<a href="http://www-users.cs.umn.edu/~evw/">Eric Van Wyk</a>
+(evw [atsign] cs.umn.edu) has made some very interesting
+extensions to the Promela language available via an online translation tool on
+the web. As their webpage says:
+<p><ul><em>
+"These extensible language frameworks are all constructed using the extensible language tools
+developed by the MELT group. The distinguishing characteristic of our approach to extensible
+languages is that the extensions can be easily composed, even if they are developed
+by different parties."</em>
+</ul><p>
+The translation tool allows you to convert extended Promela specifications into pure Promela.
+The extensions currently supported include:
+<p>
+<ul>
+<li>A non-deterministic choose construct that evaluates to a random value in a specified range. 
+<li>A multi-dimensional array construct that allows one to declare variables to be arrays of more than one dimension.
+(Promela itself only supports single dimension arrays directly.)
+<li>A condition-table construct that is borrowed from synchronous modelling languages like RSML or SCR. 
+</ul>
+<p>
+The link to the conversion server, with a number of example extended Promela models
+that can be converted online, is:
+<p><ul>
+<a href="http://www.melt.cs.umn.edu/demos/promela/index.html">
+http://www.melt.cs.umn.edu/demos/promela/index.html</a>.
+</ul>
+<p>
+The source code for the extension itself will soon also be available for downloading from
+the same webpage.
+</ul>
+
+<h2><tt><a name="G">Eclipse Plugin</a></tt></h2>
+<p>
+<ul>
+The new Eclipse plugin, described at the 2009 Spin Workshop by
+<a href="http://www.springerlink.com/content/347l152065r00644/">
+Tim Kovse and colleagues</a> from the University of Maribor in Slovenia,
+is available from:
+<a href="http://lms.uni-mb.si/ep4s/">http://lms.uni-mb.si/ep4s/</a>,
+together with the installation and usage instructions. It offers a
+very nice folding editor for Promela models.
+<br>
+An extension for displaying Spin error trails as message sequence charts can be
+downloaded from: <a href="http://lms.uni-mb.si/st2msc/">http://lms.uni-mb.si/st2msc/</a>.
+<br>
+More extensions are planned, providing more of the functionality of
+the current Xspin interface.
+</ul>
+
+<h2><tt><a name="Y">Goal and Buchi Store</a></tt></h2>
+<p>
+<ul>
+<li>
+<a href="http://buchi.im.ntu.edu.tw/">B&uuml;chi Store</a> is a repository
+of B&uuml;chi automata and their complements for common specification
+patterns and interesting temporal formulae.
+The three smallest automata known are included. 
+Users can upload new automata or smaller equivalent ones.
+The repository can be useful as benchmark cases for researching
+B&uuml;chi complementation algorithms and as examples for teaching.
+<li>
+<a href="http://goal.im.ntu.edu.tw/">Goal</a> is a toolset closely
+related to Spin. It is a graphical interactive tool for defining
+and manipulating B&uuml;chi automata and temporal logic formulae.
+</ul>
+
+
+<h2><tt><a name="H">Emacs</a></tt></h2>
+<p>
+<ul>
+<li>There are several versions of a Promela mode for
+Emacs available. 
+A quick Google search for "Promela emacs" will find them, or try:
+<a href="http://spinroot.com/spin/Src/promela-mode.el">promela-mode.el</a>.
+</ul>
+
+<h2><tt><a NAME="C">Support</a></tt></h2>
+<ul>
+<li>
+Spin is actively maintained and continuously improved and updated.
+If you send in a bug report, you'll typically
+get a response in minutes, and confirmed bugs are normally fixed within a few days
+at the most.
+Feel free to send requests for changes and extensions of the Spin software,
+questions on usage, bug reports, and general observations to:
+<ul>
+<tt>spin_list [atsign] spinroot [dot] com</tt>.
+</ul>
+</ul>
+
+<h2><tt><a name="Z">Sample Spin Related Projects</a></tt></h2>
+<p>
+<ul>
+Click <a href="projects.html">here</a> for a list of currently open issues
+that can be considered for everything
+from a summer project to a longer term research project.
+The topics are divided into three categories, depending on the
+expected level of difficulty: Basic, Intermediate, and Advanced.
+</ul>
+
+<table width=100%><tr><td align=center>
+<a href="Gif/Spin_WS_2011.gif"><img src="Gif/Spin_WS_2011.gif" align="center" width=200></a>
+</td></tr></table>
+<p>
+<h2><tt><a NAME="D">Annual Workshops</a></tt></h2>
+
+<img src="Gif/littlebug.gif" alt="[spin logo]" height=51 width=48 align="right">
+<ul>
+<li>
+<a href="Workshops/new_charter.html">Charter</a> for the Spin workshop series, and steering committee.
+<li>
+<a href="Workshops/index.html">Online Proceedings</a> for all 17 Spin workshops held since 1995.
+</ul>
+<p>
+<ul>
+<li>
+<a href="http://research.microsoft.com/en-us/um/redmond/events/spin2011/
+">Spin 2011 Workshop</a> (the <b>18th</b> Workshop in the series) will be co-located with CAV 2011
+and held from July 14 2011 to July 15 2011, in Cliff Lodge, Snowbird, Utah, USA.
+The organizers are Alex Groce (Oregon State Univ.) and Madan Musuvathi (Microsoft Research).
+</ul>
+<p>
+<ul>
+<li>
+We're inviting proposals for organizing <font color=red>Spin 2012</font>, please send a note to
+one of the Spin Workshop SC members if you're interested in organizing it.
+</ul>
+<p>
+<hr>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7023094224251763";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<hr>
+<table width=100%>
+<tr>
+<td valign=top width=250><a href="http://spinroot.com/">Spin Homepage</a></td>
+<td valign=top align=center></td>
+<td valign=top align=right>
+<font size="3"><b><tt>(Page Updated: 5 December 2010)</tt></b></font></td></tr>
+</table>
+</body> </html> 
+

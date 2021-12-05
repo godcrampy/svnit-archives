@@ -1,0 +1,290 @@
+<body bgcolor=#ffffff>
+<html>
+<p>
+<title>SPIN Verifier's Roadmap: Spin</title>
+<h1><tt>SPIN VERIFIER's ROADMAP:
+<br>
+<font color="#FF0000">BUILDING AND VERIFYING <i>Spin</i> MODELS</font>
+</tt></h1>
+For routine use of <i>Spin</i>, the use <i>iSpin</i>, the graphical
+interface to <i>Spin</i>, is recommended.  <i>iSpin</i> will synthesize
+all appropriate compile-time and runtime flags, based on menu choices.
+<i>Spin</i> itself, however, may be used in any environment, independent of the
+availability of a graphical user interface.
+For a quick introduction of how to use <i>iSpin</i>,
+see <a href="GettingStarted.html">GettingStarted.html</a>.
+The following description assumes only the availability of <i>Spin</i> itself,
+and provides a quick guide through the various verification options that are
+available. This basic information can be useful
+to get an initial understanding of <i>Spin</i>'s options.
+<br>
+This description assumes that the appropriate software
+has been installed on your system and that
+<i>Spin</i> and an ANSI-C compiler are within your search path.
+If this is not the case, see the <a href="README.html">README</a>
+file first.
+
+<h2><tt>One</tt></h2>
+Begin by defining a prototype (a verification model) of the system
+to be studied in <i>Promela</i>.
+Consider how you will express the correctness requirements.
+You can use inline assertions, end-state labels,
+progress-state labels, acceptance-state labels, LTL properties,
+or never-claims.
+In most cases you will only need the first two or three.
+
+<h2><tt>Two</tt></h2>
+For quick debugging of the model: do a simulation run
+to catch syntax errors and major goofs.
+<br>
+If no flags are provided, <i>Spin</i> performs a random simulation
+of the model.
+Add a few options to see useful things happening.
+<pre>
+	$ spin -c spec		# simulation run, columnated output
+</pre>
+<pre>
+	$ spin -p spec		# simulation run, process moves
+</pre>
+(Use "spin --" to see what other options are available at this point.)
+<br>
+You can also add printf statements to the specification
+to make things more clear.
+<p>
+When done debugging, generate a verifier as follows:
+<pre>
+	$ spin -a spec		# generate verifier
+</pre>
+
+<h2><tt>Three</tt></h2>
+Compile the verifier.
+The biggest decision to make at this point is: can you afford a
+full verification (CPU-time and memory) or only an approximate
+supertrace analysis?
+<ul>
+<li><b>Exhaustive verification.</b>
+Compile as follows.
+<pre>
+	$ gcc -O2 -o pan pan.c            # default compilation
+</pre>
+(It is always smart to use the -O2 flag to let the compiler optimize
+the code: it can half the runtime of the verifier.)
+<br>
+If you know how much physical memory your system has,
+use this to restrict the maximum amount that verifications
+can take to avoid unpleasant paging behavior, for instance,
+if you have 256 Megabyte available compile as follows.
+<pre>
+	$ gcc -O2 -DMEMLIM=256 -o pan pan.c   # memory bound 256Mb
+</pre>
+If the verification still runs out of memory, use compression
+instead of increasing the memory limit above what is available
+on your system, for instance:
+<pre>
+	$ gcc -O2 -DMEMLIM=256 -DCOLLAPSE -o pan pan.c # collapse compression
+</pre>
+If also this is insufficient, and exceeds the memory bounds,
+switch to supertrace (also known as bitstate hashing).
+<p>
+<li><b>Supertrace verification.</b>
+Compile as follows.
+<pre>
+	$ gcc -O2 -DMEMLIM=256 -DBITSTATE -o pan pan.c    # supertrace algorithm
+</pre>
+This is typically used as the method of last resort when a full
+verication turns out to be infeasible because of memory limitations.
+It can also be used as a fast prescan of the problem, to get an
+early and quick indication of the presence or absence of errors.
+</ul>
+
+<h2><tt>Four</tt></h2>
+Assuming you have compiled an executable verifier in the
+file 'pan' (short for 'process analyzer'),
+there are three more decisions you have to make to
+perform verifications optimally.
+The decisions are:
+<ul>
+<ol>
+<li> selecting the size of the hash-table
+<li> selecting the type of property to be verified (safety or liveness)
+<li> selecting the maximum search depth,
+<li> selecting the parameters for a replay of an error, if found.
+</ol>
+</ul>
+We look at each of these last decisions below.
+<ul>
+<li>
+For a <b>full verification</b> (i.e., if you compiled without the -DBITSTATE
+option), there's not need to worry about the hashtable size -- the model checker will
+adjust it as necessary if the default value it uses turns out to be too small.
+<br>
+For a <b>supertrace run</b> (i.e., you compiled with -DBITSTATE),
+the hashtable defines the size of the memory arena used, and it will
+not change during the run, so you have to select the value more carefully.
+Set it to the maximum size of memory you can grab without
+making the system page (i.e., set it to the
+amount of real physical memory you can use).
+The -w argument should equal at least the nearest
+power of 2 of the number of reachable system states you expect.
+For instance, use 23 if you expect 8 million reachable states
+and can use 8 million bits of memory
+(i.e., 2<sup>23</sup> bits is 8 million bits,
+which requires 2 <sup>20</sup> or 1 Megabyte of RAM).
+<br>
+It's no real problem if you set the number too high or too low.
+Too low will not fully utilize available memory, and give you lower
+coverage than possible.  Too high means asking for more memory than
+your system has available -- the system will complain.
+<p>
+<li>
+The second runtime decision is to decide if you want to check the model
+for non-progress cycles (and only non-progress cycles),
+acceptance cycles (and only acceptance cycles), or safety properties.
+<p>
+For <b>acceptance cycles</b> use option -a:
+<pre>
+	$ ./pan -a
+</pre>
+For <b>non-progress cycles</b> you must add the directive -DNP when
+compiling <i>Spin</i>.  After that, you can use run-time option -l
+(<i>Spin</i> will warn you if you forget </i>-DNP</i>):
+<pre>
+	$ gcc -O2 -DNP -o pan pan.c
+or:
+	$ gcc -O2 -DNP -DBITSTATE -o pan pan.c
+</pre>
+followed by:
+<pre>
+	$ ./pan -l
+</pre>
+If you don't use options -l or -a, and only want to check basic <b>safety properties</b>
+(assertion violations, unreachable code, etc), you can obtain a faster verifier by compiling:
+<pre>
+	$ gcc -O2 -DSAFETY -o pan pan.c
+or
+	$ gcc -O2 -DSAFETY -DBITSTATE -o pan pan.c
+</pre>
+In this case you can also try Spin's breadth-first search mode, which
+works only for safety properties but has the advantage of finding short error traces:
+<pre>
+	$ gcc -O2 -DBFS -o pan pan.c
+</pre>
+This search mode can be combined with all compression methods (
+BITSTATE, COLLAPSE, MA, HC4, etc.).
+<p>
+<li>
+The next decision has to do with the search depth.
+By default the verifiers have a search depth restriction of 10,000 steps.
+If this isn't enough, the search will truncate at 9,999 steps (watch for
+it in the printout).
+You can define a different searchdepth with the -m flag.
+<pre>
+	$ ./pan -m100000
+</pre>
+If you find a particularly nasty error that takes a large number of steps
+to hit, you may also set lower search depths to try to find a short variant
+of an error sequence.
+<pre>
+	$ ./pan -m40
+</pre>
+Or you can ask <i>Spin</i> to iteratively home in on shorter versions of the
+error in a more reliable way.  In that case, add the compile time directive -DREACH when
+you compile pan.c, and use either the -i or the -I runtime flag:
+<pre>
+	$ gcc -O2 -DREACH -o pan pan.c
+	$ ./pan -m100000 -I	# iterative search for short errors
+</pre>
+<li>
+After you've done a first verification run, you can decide if
+any of the verification parameters you chose earlier was
+wrong (e.g., amount of memory available, or number of reachable states).
+Adjust and repeat until you get a clean and complete run.
+<p>
+If you find an error, any error, <i>Spin</i> dumps an error-trail into the
+file `spec.pml.trail', where `spec.pml' is the name of your PROMELA input.
+To inspect the trail, and examine the cause of the error, use a
+guided simulation with option -t:
+<pre>
+	$ spin -t -c spec.pml
+</pre>
+Add as many extra or different options as you need to pin down the error.
+(You can check <i>Spin</i>'s available options by typing: "spin --" .)
+One option is to convert the trail into a Postscript represetation of
+a message sequence chart of send and receive actions:
+<pre>
+	$ spin -t -M spec.pml
+</pre>
+For more detailed tracebacks use, for instance:
+<pre>
+	$ spin -t -r -s -l -g spec.pml
+</pre>
+Make sure the file `spec.pml' didn't change since you generated the verifier.
+(<i>Spin</i> will warn if you did.)
+<p>
+If you find non-progress cycles: add or delete progress labels
+and repeat the verifications until you're content that you found what
+you're looking for.
+<p>
+If you're not interested in the first error you see, use option -c to print
+others into the trail
+<pre>
+	$ ./pan -c3
+</pre>
+prints the third error into the trail.
+If you just want to count all errors and not see them, use
+<pre>
+	$ ./pan -c0
+</pre>
+By default, the argument is 1.
+<p>
+If you want to obtain a trail for each and every error, use:
+<pre>
+	$ ./pan -e -c0
+</pre>
+This creates a series of error trails in files numbers spec.trail,
+spec2.trail, spec3.trail, ...etc., where "spec" is the name of the
+file from which you created the verifier.
+To trace back a specific one of these trails, you must specify the
+appropriate file with the -k option:
+<pre>
+	$ pan -e -c0
+	...
+	$ spin -k trailfilename -c spec.pml
+</pre>
+</ul>
+<p>
+<h2><tt>And Finally</tt></h2>
+Internally <i>Spin</i> and pan deal with a formalization of
+the model in terms of automata.
+<i>Spin</i> assigns numbers to all statements in the input.
+These state numbers are listed in all output so that you
+can, if you want, use that information to track down what happens.
+To see the state assignments use the runtime option -d for the
+executable verifier pan:
+<pre>
+	$ pan -d	# print state machines
+</pre>
+to print the optimized state machine assignments, as it is used during
+verification.
+The unoptimized machine (used during random or guided simulations with
+spin -t for instance) can also be printed, using:
+<pre>
+	$ pan -d -d	# print full, unoptimized state machines
+</pre>
+These two options should also make it easier to understand and
+verify the working of <i>Spin</i>/pan in terms of automata theory.
+<p>
+When needed, you can also compile the verifier with -DCHECK, to
+get verbose printouts from the progress of the search itself.
+</ul>
+<p><p><p><hr>
+<table cols=3 width=100%>
+<tr>
+<td valign=top>
+<a href="http://spinroot.com/spin/whatispin.html">Spin HomePage</a>
+</td>
+<td valign=top align=center></td>
+<td valign=top align=right>
+<font size="3"><b><tt>(Page Updated: 3 December 2010)</tt></font></b></td></tr>
+</table>
+</html>

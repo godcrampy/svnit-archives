@@ -1,0 +1,38 @@
+digraph init {
+size="8,10";
+  GT [shape=box,style=dotted,label="init"];
+  GT -> S1;
+	S1 -> S2  [color=black,style=bold,label="FORKS[0] = 0"];
+	S2 -> S3  [color=black,style=bold,label="FORKS[1] = 0"];
+	S3 -> S4  [color=black,style=bold,label="FORKS[2] = 0"];
+	S4 -> S5  [color=black,style=bold,label="FORKS[3] = 0"];
+	S5 -> S6  [color=black,style=bold,label="(run philosopher(0))"];
+	S6 -> S7  [color=black,style=bold,label="(run philosopher(1))"];
+	S7 -> S8  [color=black,style=bold,label="(run philosopher(2))"];
+	S8 -> S9  [color=black,style=bold,label="(run philosopher(3))"];
+	S9 -> S0  [color=black,style=solid,label="-end-"];
+  S9 [color=blue,style=bold,shape=box];
+}
+digraph p_philosopher {
+size="8,10";
+  GT [shape=box,style=dotted,label="philosopher"];
+  GT -> S7;
+	S7 -> S2  [color=black,style=bold,label="((i==(SIZE-1)))"];
+	S7 -> S5  [color=black,style=bold,label="else"];
+	S2 -> S3  [color=black,style=bold,label="low = ((i+1)%SIZE)"];
+	S3 -> S21  [color=black,style=solid,label="high = i"];
+	S21 -> S10  [color=black,style=solid,label="printf('Philosopher %d is thinking... ',(i+1))"];
+	S10 -> S11  [color=black,style=bold,label="((FORKS[low]==0))"];
+	S11 -> S12  [color=black,style=bold,label="FORKS[low] = 1"];
+	S12 -> S13  [color=black,style=solid,label="printf('Philosopher %d has picked fork %d... ',(i+1),(low+1))"];
+	S13 -> S14  [color=black,style=bold,label="((FORKS[high]==0))"];
+	S14 -> S15  [color=black,style=bold,label="FORKS[high] = 1"];
+	S15 -> S16  [color=black,style=solid,label="printf('Philosopher %d has picked fork %d... ',(i+1),(high+1))"];
+	S16 -> S17  [color=black,style=solid,label="printf('Philosopher %d is eating... ',(i+1))"];
+	S17 -> S18  [color=black,style=bold,label="FORKS[low] = 0"];
+	S18 -> S19  [color=black,style=bold,label="FORKS[high] = 0"];
+	S19 -> S20  [color=black,style=solid,label="printf('Philosopher %d done eating... ',(i+1))"];
+	S20 -> S21  [color=black,style=bold,label="printf('Forks: [%d, %d, %d, %d] ',FORKS[0],FORKS[1],FORKS[2],FORKS[3])"];
+	S5 -> S6  [color=black,style=solid,label="low = i"];
+	S6 -> S21  [color=black,style=bold,label="high = ((i+1)%SIZE)"];
+}
