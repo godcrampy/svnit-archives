@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="round-robin:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/round_robin_jar</output-path>
+    <root id="archive" name="tute-02.jar">
+      <element id="module-output" name="tute-02" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../lib/cloudsim-3.0.3/cloudsim-3.0.3/jars/cloudsim-3.0.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
